@@ -2,13 +2,9 @@
 <h1>{{ .Title }}</h1>
 {{ $paginator := .Paginate .Data.Pages (or .Site.Params.paginate 3) }}
 <main>
-    <ul>
-        <li>
-            {{ range $paginator.Pages }}
-            <a href="{{.RelPermalink}}">{{.Title}}</a>
-            {{ end }}
-        </li>
-    </ul>
+    {{ range $paginator.Pages }}
+    {{ partial "project.html" . }}
+    {{ end }}
 </main>
 {{ partial "paginator.html" $paginator }}
 {{ end }}
