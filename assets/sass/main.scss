@@ -1,1 +1,12 @@
-@import "./project.scss"
+@import "./project.scss";
+
+
+blockquote {
+    padding-left: 25px;
+    border-left: gray solid 4px;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    p {
+        margin-bottom: 0;
+    }
+}

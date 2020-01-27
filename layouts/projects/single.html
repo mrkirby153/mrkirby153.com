@@ -1,18 +1,44 @@
 {{ define "main" }}
     <h1>{{.Title}}</h1>
-    <div class="meta mt-4">
-        {{ if isset .Params "website" }}
-            <a class="meta-item" href="{{.Params.website}}" target="_blank">Website <i class="fas fa-external-link-alt"></i></a>
-        {{ end }}
-        {{ if isset .Params "source" }}
-            <a class="meta-item" href="{{.Params.source}}" target="_blank"><i class="fab fa-{{.Params.source_brand}}"></i> Source</a>
-        {{ end }}
-
-        {{ if isset .Params "license" }}
-            <br/><span class="meta-item">License: {{.Params.license}}</span>
-        {{ end }}
-    </div>
     <div class="content mt-4">
+        {{ if isset .Params "screenshots" }}
+        {{ if gt (len .Params.screenshots) 1}}
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                {{ range $index, $element := .Params.screenshots }}
+                <div class="carousel-item {{ if eq $index 0 }}active{{end}}">
+                    <img class="d-block w-100" src="{{ . }}" alt="Slide {{ add $index 1 }}">
+                </div>
+                {{ end }}
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        {{ else }}
+        {{ range .Params.screenshots }}
+            <img class="d-block w-100" src="{{ . }}">
+            {{ end }}
+        {{ end }}
+        {{ end }}
+            <div class="project-meta mt-4">
+                {{ if isset .Params "website" }}
+                <a class="meta-item" href="{{.Params.website}}" target="_blank">Website <i class="fas fa-external-link-alt"></i></a>
+                {{ end }}
+                {{ if isset .Params "source" }}
+                <a class="meta-item" href="{{.Params.source}}" target="_blank"><i class="fab fa-{{.Params.source_brand}}"></i>
+                    Source</a>
+                {{ end }}
+            
+                {{ if isset .Params "license" }}
+                <br /><span class="meta-item">License: {{.Params.license}}</span>
+                {{ end }}
+            </div>
         {{ .Content }}
     </div>
 {{ end }}
