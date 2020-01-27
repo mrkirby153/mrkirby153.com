@@ -1,0 +1,16 @@
+{{ define "main" }}
+    <p>
+        Click on a category below to view all projects in the cateogry.
+    </p>
+    {{ $paginator := .Paginate .Data.Pages (or .Site.Params.paginate 3) }}
+    <main>
+        {{ range $paginator.Pages }}
+        {{ with $.Site.GetPage (printf "/categories/%s" .Title) }}
+        <li>
+            <a href="{{.Permalink}}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+        {{ end }}
+    </main>
+    {{ partial "paginator.html" $paginator }}
+{{ end }}

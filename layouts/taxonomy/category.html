@@ -1,0 +1,10 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+    {{ $paginator := .Paginate .Data.Pages (or .Site.Params.paginate 3) }}
+    <main>
+        {{ range $paginator.Pages }}
+        {{ partial "project.html" . }}
+        {{ end }}
+    </main>
+    {{ partial "paginator.html" $paginator }}
+{{ end }}

@@ -1,0 +1,25 @@
+<div class="card project">
+    <div class="card-body">
+        <h2 class="project-title"><a href="{{.RelPermalink}}">{{ .Title }}</a>{{ if .Draft }} <span
+                class="badge badge-secondary">Draft</span>{{ end }}</h2>
+        <div class="meta">
+            <span class="start-date">{{ .Params.startdate }}</span>
+            {{ if .Params.enddate }}
+            &ndash; <span class="end-date">{{ .Params.enddate }}</span>
+            {{ end }}
+        </div>
+        <div class="summary">
+            {{ .Summary }} {{ if .Truncated }} <a href="{{ .RelPermalink }}">Read More...</a> {{ end }}
+        </div>
+        <ul class="categories list-inline mb-0">
+            {{ range .Params.categories }}
+            {{ $category := . }}
+            {{ with $.Site.GetPage (printf "/categories/%s" $category) }}
+            <li class="list-inline-item category">
+                <a href="{{.RelPermalink}}" class="category-item"><i class="fas fa-tag" class="category-tag"></i> {{ $category }}</a>
+            </li>
+            {{ end }}
+            {{ end }}
+        </ul>
+    </div>
+</div>

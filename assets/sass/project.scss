@@ -1,0 +1,26 @@
+
+.project {
+    margin-bottom: 10px;
+
+    .meta {
+        margin-bottom: 5px;
+    }
+
+    .project-title {
+        margin-bottom: 0;
+    }
+
+    .meta {
+        color: rgba(0, 0, 0, 0.50);
+    }
+
+    .summary {
+        margin-bottom: 5px;
+    }
+    .category {
+        a {
+            color: black;
+            font-size: small;
+        }
+    }
+}
