@@ -1,7 +1,18 @@
 {{ define "main" }}
     <h1>{{.Title}}</h1>
+    <div class="meta mt-4">
+        {{ if isset .Params "website" }}
+            <a class="meta-item" href="{{.Params.website}}" target="_blank">Website <i class="fas fa-external-link-alt"></i></a>
+        {{ end }}
+        {{ if isset .Params "source" }}
+            <a class="meta-item" href="{{.Params.source}}" target="_blank"><i class="fab fa-{{.Params.source_brand}}"></i> Source</a>
+        {{ end }}
 
-    <div class="content">
+        {{ if isset .Params "license" }}
+            <br/><span class="meta-item">License: {{.Params.license}}</span>
+        {{ end }}
+    </div>
+    <div class="content mt-4">
         {{ .Content }}
     </div>
 {{ end }}

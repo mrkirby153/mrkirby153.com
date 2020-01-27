@@ -4,6 +4,10 @@ draft: true
 startdate: "January 2020"
 enddate: "March 2020"
 categories: ["HTML", "Java"]
+source: "https://github.com/mrkirby153/KirBot"
+source_brand: "github"
+website: "https://kirbot.mrkirby153.com"
+license: "MIT"
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas non varius nibh. Ut eu sapien a quam sagittis eleifend. Donec sit amet mattis nunc. Nulla magna libero, hendrerit ut sagittis id, sollicitudin eget quam. Aenean eget turpis non orci pellentesque consequat. Curabitur fermentum magna vel dui euismod tincidunt. Donec nec condimentum magna, ac tincidunt lorem. Donec dui nunc, ornare at elit eget, venenatis tempor turpis. Nam pulvinar lorem nulla, eu auctor magna viverra ac. Suspendisse elit ex, porttitor a placerat ac, aliquet vitae risus. Nam maximus imperdiet arcu ut gravida. Pellentesque dolor metus, viverra sit amet ex eu, volutpat lacinia est. Phasellus pulvinar posuere ante, id interdum ex facilisis et. Ut fermentum ligula quis elit faucibus blandit.
