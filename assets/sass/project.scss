@@ -30,3 +30,12 @@
         margin-left: 5px;
     }
 }
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.blurred {
+    filter: blur(8px);
+}

@@ -8,7 +8,8 @@ source: "https://github.com/mrkirby153/KirBot"
 source_brand: "github"
 website: "https://kirbot.mrkirby153.com"
 license: "MIT"
-screenshots: ["https://via.placeholder.com/350x150"]
+screenshot: "1920x1080.png"
+summary: "This is the summary for the thing"
 ---
 
 ## Overview
