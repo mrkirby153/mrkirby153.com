@@ -5,11 +5,11 @@
     <div class="image-wrapper">
         {{ if fileExists (printf "assets/img/%s" .Params.screenshot) }}
         {{ $image := resources.Get (printf "img/%s" .Params.screenshot) }}
-        {{ $image := $image.Fit "600x400" }}
+        {{ $image := $image.Fit "600x900" }}
         <img class="hero-image" src="{{ $image.RelPermalink }}">
         {{ else }}
         {{ $image := resources.Get "img/placeholder.png" }}
-        {{ $image := $image.Fit "600x400" }}
+        {{ $image := $image.Fit "600x900" }}
         <img class="hero-image" src="{{ $image.RelPermalink }}">
         {{ end }}
     </div>
