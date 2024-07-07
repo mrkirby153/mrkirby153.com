@@ -7,26 +7,13 @@ import type {
 
 interface Props {
   icon: IconDefinition;
-  prefix?: IconPrefix;
 }
 
-const { icon: iconProp, prefix } = Astro.props;
+const { icon: iconProp } = Astro.props;
 
 library.add(iconProp);
 
-const name = iconProp.iconName;
-
-const faIcon = icon({ prefix: prefix || "fas", iconName: iconProp.iconName });
+const faIcon = icon({ prefix: iconProp.prefix, iconName: iconProp.iconName });
 ---
 
 <Fragment set:html={faIcon.html} />
-
-<style is:global>
-  .svg-inline--fa {
-    overflow: visible;
-    box-sizing: content-box;
-    display: inline-block;
-    height: 1em;
-    vertical-align: -0.125em;
-  }
-</style>

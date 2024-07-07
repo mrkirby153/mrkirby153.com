@@ -1,7 +1,123 @@
 ---
+import FontAwesomeIcon from "./FontAwesomeIcon.astro";
+import type { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import {
+  faTwitter,
+  faGithub,
+  faMastodon,
+  faXTwitter,
+} from "@fortawesome/free-brands-svg-icons";
+import { faKey } from "@fortawesome/free-solid-svg-icons";
 
+interface Link {
+  icon: IconDefinition;
+  altIcon?: IconDefinition;
+  url: string;
+  name: string;
+  rel?: boolean;
+  hover?: string;
+}
+
+const links = [
+  {
+    name: "twitter",
+    icon: faTwitter,
+    altIcon: faXTwitter,
+    url: "https://twitter.com/mrkirby153",
+    hover: "[#1D9BF0]", // hover:text-[#1D9BF0]
+  },
+  {
+    name: "github",
+    icon: faGithub,
+    url: "https://github.com/mrkirby153",
+  },
+  {
+    name: "mastodon",
+    icon: faMastodon,
+    url: "https://mastodon.social/@mrkirby153",
+    rel: true,
+    hover: "[#6364FF]", // hover:text-[#6364FF]
+  },
+  {
+    name: "gpg",
+    icon: faKey,
+    url: "/pubkey.gpg",
+    hover: "[#976F47]", // hover:text-[#976F47]
+  },
+] satisfies Link[];
 ---
 
-<div class="border border-gray-400 border-solid p-3">
-    This is where the links go brrrrr
+<div class="flex">
+  {
+    links.map((link) => {
+      const hoverColor =
+        link.hover !== undefined ? `text-${link.hover}` : "text-white";
+
+      const isTwitter = link.name === "twitter";
+
+      return (
+        <div class="link-icon pl-3 first:pl-0">
+          <a
+            class={`text-white hover:${hoverColor} hover:cursor-pointer inline-block w-[2rem]`}
+            href={link.url}
+            target="_blank"
+            rel={link.rel ? "me" : null}
+          >
+            <span data-icon-swap={link.altIcon ? "primary" : null}>
+              <FontAwesomeIcon icon={link.icon} />
+            </span>
+            {link.altIcon && (
+              <span class="hidden" data-icon-swap={link.altIcon ? "alt" : null}>
+                <FontAwesomeIcon icon={faXTwitter} />
+              </span>
+            )}
+          </a>
+        </div>
+      );
+    })
+  }
 </div>
+
+<script>
+  import invariant from "tiny-invariant";
+  const icons = document.querySelectorAll("[data-icon-swap]");
+
+  const primaryIcons: HTMLElement[] = [];
+  const altIcons: HTMLElement[] = [];
+
+  icons.forEach((icon) => {
+    invariant(
+      icon instanceof HTMLElement,
+      "Expected icon to be an HTMLElement"
+    );
+    if (icon.dataset.iconSwap === "primary") {
+      primaryIcons.push(icon);
+    } else if (icon.dataset.iconSwap === "alt") {
+      altIcons.push(icon);
+    }
+  });
+
+  const swapIcons = (primary: boolean) => {
+    const primaryList = primary ? primaryIcons : altIcons;
+    const altList = primary ? altIcons : primaryIcons;
+
+    primaryList.forEach((icon) => {
+      icon.classList.add("hidden");
+    });
+
+    altList.forEach((icon) => {
+      icon.classList.remove("hidden");
+    });
+  };
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key === "Shift") {
+      swapIcons(true);
+    }
+  });
+  window.addEventListener("keyup", (event) => {
+    if (event.key === "Shift") {
+      swapIcons(false);
+    }
+  });
+</script>

@@ -2,9 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import profilePic from "../img/profile.jpg";
-
-import FontAwesomeIcon from "../components/FontAwesomeIcon.astro";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import Links from "../components/Links.astro";
 ---
 
 <Layout title="mrkirby153.com">
@@ -21,7 +19,9 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
     </div>
   </div>
 
-  <FontAwesomeIcon icon={faEnvelope} />
+  <div class="flex justify-center">
+    <Links />
+  </div>
 
   <p>
     I'm a software engineer who's passionate about infrastructure, automation,
