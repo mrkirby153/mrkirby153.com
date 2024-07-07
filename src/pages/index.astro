@@ -6,6 +6,8 @@ import Links from "@components/Links.astro";
 import FeaturedItems from "@components/FeaturedItems.astro";
 import type { Item } from "@components/FeaturedItems.astro";
 import { getFeaturedProjects, getFeaturedPosts } from "@utils/content";
+import { faWrench, faBook } from "@fortawesome/free-solid-svg-icons";
+import FontAwesomeIcon from "@components/FontAwesomeIcon.astro";
 
 const featuredProjects = await getFeaturedProjects();
 const featuredProjectsItems: Item[] = featuredProjects.map((project) => ({
@@ -41,12 +43,13 @@ const featuredPostsItems: Item[] = featuredPosts.map((post) => {
         width="128"
         height="128"
       />
-      <h1 class="text-xl md:text-4xl pl-4">Hi, I'm mrkirby153</h1>
+      <div>
+        <h1 class="text-xl md:text-4xl pl-4">Hi, I'm mrkirby153</h1>
+        <div class="flex justify-center mt-1">
+          <Links />
+        </div>
+      </div>
     </div>
-  </div>
-
-  <div class="flex justify-center">
-    <Links />
   </div>
 
   <p>
@@ -71,10 +74,17 @@ const featuredPostsItems: Item[] = featuredPosts.map((post) => {
     on.
   </p>
 
-  <h2 class="text-2xl mt-4 mb-2"><a href="/projects">Projects</a></h2>
+  <h2 class="text-2xl mt-4 mb-2">
+    <span class="header-icon"><FontAwesomeIcon icon={faWrench} /></span><a
+      href="/projects">Projects</a
+    >
+  </h2>
   <FeaturedItems items={featuredProjectsItems} />
 
-  <h2 class="text-2xl mt-4 mb-2"><a href="/posts/1">Writing</a></h2>
+  <h2 class="text-2xl mt-4 mb-2">
+    <span class="header-icon"><FontAwesomeIcon icon={faBook} /></span>
+    <a href="/posts/1">Writing</a>
+  </h2>
   <FeaturedItems items={featuredPostsItems} />
 </Layout>
 
@@ -83,5 +93,9 @@ const featuredPostsItems: Item[] = featuredPosts.map((post) => {
     max-width: 75%;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .header-icon {
+    @apply w-5 inline-block mr-2 align-[-0.125em];
   }
 </style>
