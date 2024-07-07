@@ -7,7 +7,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content="mrkirby153.com" />
@@ -29,7 +29,7 @@ const { title } = Astro.props;
     @apply text-[1.2rem];
   }
   a {
-    @apply hover:underline hover:text-blue-400 text-blue-200 transition ease-in-out;
+    @apply hover:underline dark:hover:text-blue-400 text-blue-600 hover:text-blue-800 dark:text-blue-200 transition ease-in-out;
   }
   p {
     @apply pt-1 pb-1;
@@ -37,9 +37,8 @@ const { title } = Astro.props;
 </style>
 
 <style>
-  .dark {
-    background-color: rgb(48, 48, 48);
-    color: white;
+  html {
+    @apply dark:bg-[#303030] dark:text-white;
   }
   .main-content {
     padding-top: 4rem;
