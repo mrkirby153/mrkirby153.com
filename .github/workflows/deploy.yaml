@@ -13,14 +13,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
       - name: Connect to tailscale
         uses: tailscale/github-action@v2
         with:
           oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
           tags: tag:ci
-      - name: Install pnpm
-        run: npm install -g pnpm
       - name: Build site
         run: pnpm install -P && pnpm build
       - name: Configure SSH
