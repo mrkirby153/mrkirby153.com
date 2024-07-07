@@ -1,8 +1,18 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 import { Image } from "astro:assets";
-import profilePic from "../img/profile.jpg";
-import Links from "../components/Links.astro";
+import profilePic from "@img/profile.jpg";
+import Links from "@components/Links.astro";
+import FeaturedItems from "@components/FeaturedItems.astro";
+import type { Item } from "@components/FeaturedItems.astro";
+import { getFeaturedProjects } from "@utils/content";
+
+const featuredProjects = await getFeaturedProjects();
+const featuredProjectsItems: Item[] = featuredProjects.map((project) => ({
+  slug: project.slug,
+  title: project.data.title,
+  summary: project.data.summary,
+}));
 ---
 
 <Layout title="mrkirby153.com">
@@ -45,9 +55,11 @@ import Links from "../components/Links.astro";
     on.
   </p>
 
-  <h2 class="text-2xl">Projects</h2>
-  <p>TODO</p>
+  <hr class="my-3 gray-500" />
 
-  <h2 class="text-2xl">Writings</h2>
+  <h2 class="text-2xl mb-2"><a href="/projects/">Projects</a></h2>
+  <FeaturedItems items={featuredProjectsItems} />
+
+  <h2 class="text-2xl my-2"><a href="/posts/">Writings</a></h2>
   <p>TODO</p>
 </Layout>

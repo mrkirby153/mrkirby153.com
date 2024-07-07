@@ -1,0 +1,28 @@
+---
+import Post from "@layouts/Post.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("projects");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Post title={entry.data.title}>
+  <h2><a href={entry.data.link} target="_blank">Project Link</a></h2>
+  <div class="post-fence">
+    <Content />
+  </div>
+</Post>
+
+<style is:global>
+  .post-fence .astro-code {
+    @apply p-2 rounded-md;
+  }
+</style>

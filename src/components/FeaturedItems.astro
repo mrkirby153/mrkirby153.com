@@ -1,0 +1,28 @@
+---
+export type Item = {
+  slug: string;
+  title: string;
+  summary: string;
+};
+
+interface Props {
+  items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<div>
+  <div class="grid grid-cols-3 gap-4">
+    {
+      items.map((item) => (
+        <div class="p-4 border rounded-lg">
+          <h2 class="text-xl font-bold">
+            <a href={`/project/${item.slug}`}>{item.title}</a>
+          </h2>
+          <p class="text-sm">{item.summary}</p>
+        </div>
+      ))
+    }
+  </div>
+</div>

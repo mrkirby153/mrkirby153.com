@@ -1,0 +1,33 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const allProjects = await getCollection("projects");
+allProjects.sort((a, b) => {
+  const dateA = new Date(a.data.date);
+  const dateB = new Date(b.data.date);
+  return dateB.getTime() - dateA.getTime();
+});
+---
+
+<Layout title="Projects">
+  <h1 class="text-4xl mb-3">Projects</h1>
+  <p class="mb-3">
+    This is a list of some of the projects I've worked on. Check out my <a
+      href="https://www.github.com/mrkriby153"
+      target="_blank">GitHub</a
+    > for projects that may not be listed here.
+  </p>
+
+  <ul>
+    {
+      allProjects.map((project) => (
+        <li>
+          <>
+            <a href={`/project/${project.slug}`}>{project.data.title}</a>:
+            <span>{project.data.summary}</span>
+          </>
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
