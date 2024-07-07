@@ -5,14 +5,30 @@ import profilePic from "@img/profile.jpg";
 import Links from "@components/Links.astro";
 import FeaturedItems from "@components/FeaturedItems.astro";
 import type { Item } from "@components/FeaturedItems.astro";
-import { getFeaturedProjects } from "@utils/content";
+import { getFeaturedProjects, getFeaturedPosts } from "@utils/content";
 
 const featuredProjects = await getFeaturedProjects();
 const featuredProjectsItems: Item[] = featuredProjects.map((project) => ({
-  slug: project.slug,
+  slug: `/project/${project.slug}`,
   title: project.data.title,
   summary: project.data.summary,
 }));
+
+const featuredPosts = await getFeaturedPosts();
+const featuredPostsItems: Item[] = featuredPosts.map((post) => {
+  const month = post.data.date.getMonth() + 1;
+  const day = post.data.date.getDate();
+  const year = post.data.date.getFullYear();
+
+  const formatedMonth = month < 10 ? `0${month}` : month;
+  const formatedDay = day < 10 ? `0${day}` : day;
+
+  return {
+    slug: `/post/${post.slug}`,
+    title: post.data.title,
+    summary: `${year}-${formatedMonth}-${formatedDay}`,
+  };
+});
 ---
 
 <Layout title="mrkirby153.com">
@@ -55,13 +71,11 @@ const featuredProjectsItems: Item[] = featuredProjects.map((project) => ({
     on.
   </p>
 
-  <hr class="my-3 gray-500" />
-
-  <h2 class="text-2xl mb-2"><a href="/projects/">Projects</a></h2>
+  <h2 class="text-2xl mt-4 mb-2"><a href="/projects">Projects</a></h2>
   <FeaturedItems items={featuredProjectsItems} />
 
-  <h2 class="text-2xl my-2"><a href="/posts/">Writings</a></h2>
-  <p>TODO</p>
+  <h2 class="text-2xl mt-4 mb-2"><a href="/posts/1">Writing</a></h2>
+  <FeaturedItems items={featuredPostsItems} />
 </Layout>
 
 <style is:global>

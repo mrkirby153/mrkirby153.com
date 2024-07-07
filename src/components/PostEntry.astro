@@ -1,0 +1,23 @@
+---
+interface Props {
+  slug: string;
+  date: Date;
+  title: string;
+  summary: string;
+}
+
+const props = Astro.props;
+
+const dayOfWeek = props.date.toLocaleDateString("en-US", {
+  weekday: "long",
+  month: "long",
+  day: "numeric",
+  year: "numeric",
+});
+---
+
+<div class="border p-2 rounded-md">
+  <a class="font-bold block" href={props.slug}>{props.title}</a>
+  <span class="text-gray-400 text-xs">{dayOfWeek}</span>
+  <p class="text-[1em]">{props.summary}</p>
+</div>

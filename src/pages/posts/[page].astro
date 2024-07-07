@@ -1,0 +1,59 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getPosts } from "@utils/content";
+import type { Page } from "astro";
+import PostEntry from "@components/PostEntry.astro";
+
+type Props = {
+  page: Page;
+};
+
+export async function getStaticPaths({ paginate }: any) {
+  const pages = await getPosts();
+  return paginate(pages, { pageSize: 5 });
+}
+
+const { page } = Astro.props satisfies Props;
+---
+
+<Layout title="Posts">
+  <h1 class="text-5xl font-bold text-center">Posts</h1>
+  <hr class="my-2" />
+  <h2 class="text-2xl font-bold mb-4">Page {page.currentPage}</h2>
+  <ul class="mb-2 flex flex-col gap-2">
+    {
+      page.data.map((post) => {
+        return (
+          <li>
+            <PostEntry
+              slug={`/post/${post.slug}`}
+              date={post.data.date}
+              title={post.data.title}
+              summary={post.data.summary}
+            />
+          </li>
+        );
+      })
+    }
+  </ul>
+
+  {page.url.prev || page.url.next ? <hr class="dark:border-gray-600" /> : null}
+
+  <div class="flex space-x-2 justify-center">
+    {page.url.prev ? <a href={page.url.prev}>Previous</a> : null}
+    {
+      page.url.next ? (
+        <>
+          {page.url.prev ? <span>|</span> : null}
+          <a href={page.url.next}>Next</a>
+        </>
+      ) : null
+    }
+  </div>
+</Layout>
+
+<style is:global>
+  body {
+    @apply mx-auto max-w-[50%];
+  }
+</style>

@@ -6,9 +6,23 @@ export async function getFeaturedProjects() {
     (project) => project.data.featured
   );
   featuredProjects.sort((a, b) => {
-    const dateA = new Date(a.data.date);
-    const dateB = new Date(b.data.date);
-    return dateB.getTime() - dateA.getTime();
+    return b.data.date.getTime() - a.data.date.getTime();
   });
   return featuredProjects;
+}
+
+export async function getFeaturedPosts() {
+  const allPosts = await getCollection("posts");
+  allPosts.sort((a, b) => {
+    return b.data.date.getTime() - a.data.date.getTime();
+  });
+  return allPosts.slice(0, Math.min(allPosts.length, 5));
+}
+
+export async function getPosts() {
+  const allPosts = await getCollection("posts");
+  allPosts.sort((a, b) => {
+    return b.data.date.getTime() - a.data.date.getTime();
+  });
+  return allPosts;
 }

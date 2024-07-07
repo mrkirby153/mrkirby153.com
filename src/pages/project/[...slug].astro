@@ -26,8 +26,6 @@ const { Content } = await entry.render();
     @apply p-2 rounded-md;
   }
   body {
-    max-width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    @apply md:max-w-[75%] max-w-[90%] mx-auto;
   }
 </style>
