@@ -1,0 +1,82 @@
+==================================================================
+https://keybase.io/mrkirby153
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://www.mrkirby153.com
+  * I am mrkirby153 (https://keybase.io/mrkirby153) on keybase.
+  * I have a public key with fingerprint 60F2 D28E 36FB 3840 95C5  CA7E CD11 BAB1 09F4 0D95
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0101e2026f394b3aea305ada1d26836289385f7d6668dd9a6a278b60f03413dd56b10a",
+      "fingerprint": "60f2d28e36fb384095c5ca7ecd11bab109f40d95",
+      "host": "keybase.io",
+      "key_id": "cd11bab109f40d95",
+      "kid": "0101e2026f394b3aea305ada1d26836289385f7d6668dd9a6a278b60f03413dd56b10a",
+      "uid": "e97e773edcdab2db7e526a80e0568019",
+      "username": "mrkirby153"
+    },
+    "merkle_root": {
+      "ctime": 1523131952,
+      "hash_meta": "8a7ae474b8962e7413a70968680c84ca159cb5e1d8c7339ea6aef9b114d45397",
+      "seqno": 2352360
+    },
+    "revoke": {
+      "sig_ids": [
+        "65fbff0daf78199ad2e5ad053953e640f02fae6c1f80655b64d2173077ec89030f"
+      ]
+    },
+    "service": {
+      "hostname": "www.mrkirby153.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1523131963,
+  "expire_in": 157680000,
+  "prev": "4e834168acdd45d51ed97b090a5acf80bb60eba12ea136a6275a25fb3c76d384",
+  "seqno": 18,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.76
+Comment: https://keybase.io/crypto
+
+yMK/AnicrZNbaB1FGMdPUhvSaKVURR/UlKXUtqYnc9mZ2TmVUHsxtCBSqfHO6czO
+t8lycs6e7m5yGkJaiaBtacAa36x56EO1XlJDFSFGiU0IxIKYghSVaFVqESzF4IOR
+epkNlYL46L4sO/v//t9/ft/M9Mpluaa6tZ9907z+0ed21Z07e6An99Tsus39jo5M
+n1Pod0qw9IJuA0laLIXGKTgIIwwEER5Q6WqqQFHElFHYEO5RTjxJPRYIwzn3jJGK
+KyI8zVGAqIupMYxrjJTT4gRhpRPiahxWUmtrBcQQDygPNPVcJJnPfCXANxhrZUtk
+4CIjmS3sipKswobTKoF8GNk1+1Fcivcf+v85d8+SHUgBQlAwvlGaGC2AEa48BIhx
+D2GZCROIK6oMVl2OS2Gs+zCjzkCLU4a41A3FOIrSDK+fhpkIM0IxxZIRu0WVdBXL
+kCpb6ymhwBWu9iQnIGwYJZDknm3je66vMJO+ZoCN5wtKJdjkEEiNsWtcRqWwSRLY
+V4mcAqG2BUc2QQy9UQmy5knYacElTuFph7NABwEyKhAellIZAhYQsh6MAnctCRIo
+4D4OPMQZ09w1BAuKhJ2SJxFFgfPsQNYs7g39JfNsUtcJ1Gq1/A0KeT8q21zVOEoj
+P+q2/7vStJoUMjppX3WpAHTxulVRhxVjT4ut6IU4CaOKpWWV/wLHaYsD+6thDMUw
+UzBhEdkn6wO91tIFz86Se8o3Fo1hGIwUGkmkmPLtprQdN2iFCShMueJEMEUsFOoL
+buyhvEESezan6rSell9FpT0xOANnJ5+5KVfXlGtYXp9do1zTilX/XK67Fxtzrwx9
+PLG6fu7bQ62bL12t3Hz5+Na5me/3/9r89dCnhwuPtJ+Y2rOmfaR1930PbJn9vW3D
+xLt/9R+mr44Mnh5O5YoXfzyVdnw0/8WdK8fuWvzplx/Od66ZPrnt0I59u04//ALm
+449vv9Qm7/1qcv3kzpO1wXLbm/7eo8eGf55ZqDV+sm3vwjX24eV7mtnFjrGHPjg1
+94YYndrUO96z7sifyUvvLbv1ytrX6y/+1vGyy/WGqQsPHhucmxhf2M5mFk/4B768
+7cg7lA8/cWHo9vb8LeGYasif2xROw+6N77/WP39cz7XeseqxM1uvNNy/SOYLT47O
+Lt95ZssftdZrwwevvj06suf5+PPG8+GOg0e/e+tv1yiCRw==
+=bJ53
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mrkirby153
+
+==================================================================
+
