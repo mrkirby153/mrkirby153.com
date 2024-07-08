@@ -1,6 +1,6 @@
 ---
 title: Website
-link: <https://www.mrkirby153.com>
+link: "https://www.mrkirby153.com"
 summary: About this site
 date: 2024-07-07
 featured: true
