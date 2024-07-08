@@ -1,7 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { getPosts } from "@utils/content";
-import type { Page } from "astro";
+import type { Page, GetStaticPathsOptions } from "astro";
 import PostEntry from "@components/PostEntry.astro";
 import Nav from "@components/Nav.astro";
 
@@ -9,7 +9,7 @@ type Props = {
   page: Page;
 };
 
-export async function getStaticPaths({ paginate }: any) {
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const pages = await getPosts();
   return paginate(pages, { pageSize: 5 });
 }
