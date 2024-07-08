@@ -51,12 +51,14 @@ const links = [
   {
     links.map((link) => {
       const hoverColor =
-        link.hover !== undefined ? `text-${link.hover}` : "text-white"; // hover:text-white
+        link.hover !== undefined
+          ? `text-${link.hover}`
+          : "text-black dark:hover:text-white"; // hover:text-white
 
       return (
         <div class="link-icon pl-3 first:pl-0">
           <a
-            class={`text-white hover:${hoverColor} hover:cursor-pointer inline-block w-[2rem]`}
+            class={`dark:text-white text-black hover:${hoverColor} hover:cursor-pointer inline-block w-[2rem]`}
             href={link.url}
             target="_blank"
             rel={link.rel ? "me" : null}

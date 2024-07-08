@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import { getPosts } from "@utils/content";
 import type { Page } from "astro";
 import PostEntry from "@components/PostEntry.astro";
+import Nav from "@components/Nav.astro";
 
 type Props = {
   page: Page;
@@ -16,7 +17,8 @@ export async function getStaticPaths({ paginate }: any) {
 const { page } = Astro.props satisfies Props;
 ---
 
-<Layout title="Posts">
+<Layout title="Posts" compactTop={true}>
+  <Nav />
   <h1 class="text-5xl font-bold text-center">Posts</h1>
   <hr class="my-2" />
   <h2 class="text-2xl font-bold mb-4">Page {page.currentPage}</h2>
@@ -54,6 +56,6 @@ const { page } = Astro.props satisfies Props;
 
 <style is:global>
   body {
-    @apply mx-auto max-w-[50%];
+    @apply mx-auto md:max-w-[50%] max-w-[90%];
   }
 </style>

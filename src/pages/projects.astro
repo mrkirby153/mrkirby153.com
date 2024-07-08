@@ -1,6 +1,9 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import { getCollection } from "astro:content";
+
+import Nav from "@components/Nav.astro";
+
 const allProjects = await getCollection("projects");
 allProjects.sort((a, b) => {
   const dateA = new Date(a.data.date);
@@ -9,7 +12,8 @@ allProjects.sort((a, b) => {
 });
 ---
 
-<Layout title="Projects">
+<Layout title="Projects" compactTop={true}>
+  <Nav />
   <h1 class="text-4xl mb-3">Projects</h1>
   <p class="mb-3">
     This is a list of some of the projects I've worked on. Check out my <a
@@ -34,8 +38,6 @@ allProjects.sort((a, b) => {
 
 <style is:global>
   body {
-    max-width: 75%;
-    margin-left: auto;
-    margin-right: auto;
+    @apply mx-auto md:max-w-[50%] max-w-[90%];
   }
 </style>
