@@ -12,37 +12,60 @@ export async function getStaticPaths() {
 
 const { entry } = Astro.props;
 const { Content } = await entry.render();
+
+const dayOfWeek = entry.data.updated
+  ? new Date(entry.data.updated).toLocaleDateString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    })
+  : null;
 ---
 
 <Post title={entry.data.title}>
-  <h2><a href={entry.data.link} target="_blank">Project Link</a></h2>
+  {
+    dayOfWeek && (
+      <time
+        datetime={dayOfWeek}
+        class="block dark:text-gray-400 text-gray-600 italic text-sm mb-4"
+      >
+        Last updated: {dayOfWeek}
+      </time>
+    )
+  }
+  <a href={entry.data.link} target="_blank">Project Link</a>
   <div class="post-fence">
     <Content />
   </div>
 </Post>
 
 <style is:global>
+  .post-fence {
+    @apply mt-3;
+  }
+
   .post-fence p > code {
     @apply dark:bg-gray-500 dark:text-red-300 bg-gray-300 text-red-600 px-1 py-0.5 rounded-md;
   }
 
   .post-fence h1 {
-    @apply text-3xl font-bold;
+    @apply text-3xl font-bold mt-2;
   }
   .post-fence h2 {
-    @apply text-2xl font-bold;
+    @apply text-2xl font-bold mt-2;
   }
   .post-fence h3 {
-    @apply text-xl font-bold;
+    @apply text-xl font-bold mt-2;
   }
   .post-fence h4 {
-    @apply text-lg font-bold;
+    @apply text-lg font-bold mt-2;
   }
   .post-fence h5 {
-    @apply text-base font-bold;
+    @apply text-base font-bold mt-2;
   }
   .post-fence h6 {
-    @apply text-sm font-bold;
+    @apply text-sm font-bold mt-2;
   }
 
   .post-fence ol {
