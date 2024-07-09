@@ -38,12 +38,18 @@ importers:
       '@fortawesome/free-solid-svg-icons':
         specifier: ^6.5.2
         version: 6.5.2
+      '@types/markdown-it':
+        specifier: ^14.1.1
+        version: 14.1.1
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
+      '@types/sanitize-html':
+        specifier: ^2.11.0
+        version: 2.11.0
       astro:
         specifier: ^4.11.5
         version: 4.11.5(typescript@5.5.3)
@@ -74,13 +80,6 @@ importers:
       typescript:
         specifier: ^5.5.3
         version: 5.5.3
-    devDependencies:
-      '@types/markdown-it':
-        specifier: ^14.1.1
-        version: 14.1.1
-      '@types/sanitize-html':
-        specifier: ^2.11.0
-        version: 2.11.0
 
 packages:
 
