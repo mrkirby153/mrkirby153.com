@@ -22,11 +22,7 @@ const { Content } = await entry.render();
 </Post>
 
 <style is:global>
-  .post-fence .astro-code {
-    @apply p-2 rounded-md;
-  }
-
-  .post-fence :not(pre.astro-code) > code {
+  .post-fence p > code {
     @apply dark:bg-gray-500 dark:text-red-300 bg-gray-300 text-red-600 px-1 py-0.5 rounded-md;
   }
 
