@@ -1,17 +1,72 @@
 ---
 title: "Dotfiles"
 link: "https://www.github.com/mrkirby153/dotfiles"
-summary: This is a quick summary of this project.
+summary: Managing dotfiles using Nix
 featured: true
 date: 2024-07-01
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis lectus nulla at volutpat diam ut. Vulputate dignissim suspendisse in est ante in. Sit amet consectetur adipiscing elit pellentesque habitant morbi tristique. Massa id neque aliquam vestibulum morbi. Duis ut diam quam nulla porttitor. Purus in mollis nunc sed id semper. Lacus laoreet non curabitur gravida arcu ac tortor dignissim convallis. Netus et malesuada fames ac turpis egestas integer eget. Enim eu turpis egestas pretium aenean pharetra magna. At lectus urna duis convallis convallis. In tellus integer feugiat scelerisque varius. Sed tempus urna et pharetra pharetra.
+I have three primary devices that I use regularly (Two Arch Linux desktops, and 1 Macbook Pro). As a result, I want to ensure that most of my program's configuration files stay in sync across all of my devices.
 
-Non tellus orci ac auctor augue mauris augue neque gravida. Odio eu feugiat pretium nibh ipsum. Semper eget duis at tellus at. Felis eget nunc lobortis mattis aliquam faucibus purus in massa. Commodo nulla facilisi nullam vehicula ipsum a arcu cursus. Egestas purus viverra accumsan in nisl nisi scelerisque. Ornare arcu dui vivamus arcu felis bibendum ut tristique et. Sem integer vitae justo eget magna fermentum iaculis eu. Risus viverra adipiscing at in. Et malesuada fames ac turpis egestas maecenas pharetra convallis. In vitae turpis massa sed elementum tempus egestas sed sed. Iaculis urna id volutpat lacus laoreet non curabitur gravida arcu. Arcu felis bibendum ut tristique. Dignissim suspendisse in est ante in nibh. Amet consectetur adipiscing elit ut aliquam. Et netus et malesuada fames ac turpis. Vitae et leo duis ut diam quam nulla porttitor massa. Ac ut consequat semper viverra nam libero. Eu nisl nunc mi ipsum.
+Fortunately, there are many ways to do this ranging from simple (a simple bare git repo) to complex (declaratively managing them with Nix).
 
-Nunc id cursus metus aliquam eleifend mi. Magna sit amet purus gravida quis blandit turpis. Sit amet est placerat in egestas erat imperdiet sed. Tellus in metus vulputate eu scelerisque. Velit ut tortor pretium viverra suspendisse. Amet facilisis magna etiam tempor. Ullamcorper malesuada proin libero nunc. Senectus et netus et malesuada fames. In vitae turpis massa sed elementum tempus egestas. Ultricies tristique nulla aliquet enim tortor at auctor urna. Sed velit dignissim sodales ut eu sem.
+## Why Nix?
 
-In tellus integer feugiat scelerisque varius morbi enim. Amet est placerat in egestas erat imperdiet. In nisl nisi scelerisque eu ultrices. Augue mauris augue neque gravida in fermentum. Facilisi cras fermentum odio eu feugiat pretium nibh. Non tellus orci ac auctor augue mauris augue neque. At lectus urna duis convallis convallis tellus id interdum. Scelerisque eu ultrices vitae auctor eu. Mauris nunc congue nisi vitae. Ut ornare lectus sit amet est placerat. Praesent semper feugiat nibh sed pulvinar proin gravida. Eu turpis egestas pretium aenean pharetra magna ac placerat. Viverra nibh cras pulvinar mattis nunc sed blandit libero. Vestibulum morbi blandit cursus risus at ultrices. Eleifend donec pretium vulputate sapien nec sagittis. Tempus quam pellentesque nec nam aliquam sem et tortor consequat.
+I've used a handfull of different dotfile managers and they all fall short.
 
-Adipiscing tristique risus nec feugiat in. Proin sed libero enim sed faucibus. Sit amet risus nullam eget felis. Condimentum vitae sapien pellentesque habitant. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam nulla. Lectus proin nibh nisl condimentum. Urna cursus eget nunc scelerisque viverra mauris in aliquam sem. Et netus et malesuada fames. Ipsum faucibus vitae aliquet nec ullamcorper sit amet. Morbi tristique senectus et netus et malesuada fames ac turpis. Tincidunt ornare massa eget egestas. Tellus in hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Lectus sit amet est placerat in. Nisl condimentum id venenatis a. Et netus et malesuada fames ac turpis egestas integer. Odio tempor orci dapibus ultrices in iaculis. Ac turpis egestas maecenas pharetra convallis posuere morbi leo. Nec ullamcorper sit amet risus nullam eget felis.
+The first method that I used: a [bare repo][1] was suffucient for a single machine or for multiple machines that share largely the same configuration. While you can sidestep the fact that only one copy of a file can exist in the repo at one time, there are circumstances that may warrant having multiple copies of a single configuration file (i.e. monitor layout) across different hosts.
+
+To solve this problem, there are tools like [yadm][2], which enhance the bare repo concept with additional features like secret management or swapping out different versions of files according to certain criteria. However, this also fell short of what I wanted. I wanted a reproducable _environment_, not just a reproducable configuration, and an environment includes additional things like programs.
+
+## Nix and Home Manager
+
+Nix fills in the gaps where yadm lacks. Combined with [Home Manager][3], not only can I manage configuration files like I was before, but I can also manage programs, systemd units, and much more. Since there are subtile differences in my configurations between hosts (i.e. one of my desktops use `DP-0` as a primary monitor, while another one uses `HDMI-0`), I can parameterize my configuration to allow for minimal changes between hosts.
+
+Below is a snippet of one of my configurations. View the full source on [GitHub][4]
+
+```nix title="configuration.nix" showLineNumbers
+config.aus = {
+    username = "austin";
+    home = "/home/austin";
+    uid = 1000;
+
+    wallpaper = {
+      enable = true;
+      path = ./firewatch.jpg;
+    };
+
+    dwmblocks.enable = true;
+
+    programs = {
+      screenshot.enable = true;
+      scripts.enable = true;
+      sxhkd.enable = true;
+      git = {
+        enable = true;
+        sign = {
+          enable = true;
+          key = "90EF2AB021AB6FED";
+        };
+      };
+      attic.enable = true;
+      picom.enable = true;
+      vim.enable = true;
+      mail.enable = true;
+    };
+  };
+```
+
+### Cross-Operating System Compatibility
+
+Recently, I've set up home manager and [nix-darwin][5] on my laptop, and with it was a challenge of adapting my configuration to support arm64. It took a minimal amount of changes to integrate (see [this][6] commit) my dotfiles with nix-darwin and deploy an environment that I'm familiar with and is consistent with the rest of my devices with a minimal amount of tweaking.
+
+## Why not NixOS?
+
+I've played around with NixOS, but I don't think the nix/nixpkgs approach is something I want to base my whole OS off of. While most FOSS packages can be ran without a hitch on NixOS utilizing tools like `patchelf` to update the dynamic linker path, there's the potential for a lot of tinkering to get proprietary, closed source, programms running in a NixOS environment. The fact that NixOS deviates from the FHS is both its greatest strength and its biggest weakness, and not something that I want to mess around with on a daily basis.
+
+[1]: https://www.atlassian.com/git/tutorials/dotfiles
+[2]: https://yadm.io
+[3]: https://github.com/nix-community/home-manager
+[4]: https://github.com/mrkirby153/dotfiles/blob/main/hosts/aus-box/configuration.nix
+[5]: https://daiderd.com/nix-darwin/
+[6]: https://github.com/mrkirby153/dotfiles/commit/470945a9e11c3eb575ba446ff85f00309d326457
