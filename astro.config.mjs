@@ -19,7 +19,4 @@ export default defineConfig({
     tailwind(),
     react(),
   ],
-  redirects: {
-    "/posts": "/posts/1",
-  },
 });
