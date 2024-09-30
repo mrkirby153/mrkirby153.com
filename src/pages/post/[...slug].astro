@@ -21,7 +21,7 @@ const dayOfWeek = new Date(entry.data.date).toLocaleDateString("en-US", {
 });
 ---
 
-<Post title={entry.data.title}>
+<Post title={entry.data.title} description={entry.data.summary}>
   <span class="text-gray-300 text-sm italic">{dayOfWeek}</span>
   <div class="prose dark:prose-invert max-w-none">
     <Content />

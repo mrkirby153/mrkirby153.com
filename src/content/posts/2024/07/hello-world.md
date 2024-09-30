@@ -1,7 +1,7 @@
 ---
 title: "Hello, World"
 date: 2024-07-07
-summary: I built a with Astro and Tailwind
+summary: I built blog with Astro and Tailwind
 ---
 
 Hello world! I finally replaced my old website with this new site powered by [Astro][1] and [Tailwind][2]. I'm primarily a backend engineer, so don't expect much when it comes to web design.

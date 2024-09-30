@@ -23,7 +23,7 @@ const dayOfWeek = entry.data.updated
   : null;
 ---
 
-<Post title={entry.data.title}>
+<Post title={entry.data.title} description={entry.data.summary}>
   {
     dayOfWeek && (
       <time

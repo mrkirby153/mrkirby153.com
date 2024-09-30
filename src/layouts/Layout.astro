@@ -1,17 +1,20 @@
 ---
 interface Props {
-  title: string;
+  title?: string;
   compactTop?: boolean;
+  description?: string;
 }
 
-const { title, compactTop } = Astro.props;
+const { title, compactTop, description } = Astro.props;
+
+const realTitle = title ? `${title} | mrkirby153.com` : "mrkirby153.com";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="mrkirby153.com" />
+    <meta name="description" content={description || "mrkirby153.com"} />
     <meta name="viewport" content="width=device-width" />
     <meta name="darkreader-lock" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
@@ -22,7 +25,7 @@ const { title, compactTop } = Astro.props;
       title="RSS"
       href={new URL("rss.xml", Astro.site)}
     />
-    <title>{title}</title>
+    <title>{realTitle}</title>
   </head>
   <body>
     <div class={compactTop ? "main-content-compact" : "main-content"}>
