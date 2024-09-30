@@ -23,7 +23,7 @@ const dayOfWeek = new Date(entry.data.date).toLocaleDateString("en-US", {
 
 <Post title={entry.data.title}>
   <span class="text-gray-300 text-sm italic">{dayOfWeek}</span>
-  <div class="post-fence">
+  <div class="prose dark:prose-invert max-w-none">
     <Content />
   </div>
 
@@ -33,9 +33,6 @@ const dayOfWeek = new Date(entry.data.date).toLocaleDateString("en-US", {
   </div>
 
   <style is:global>
-    .post-fence .astro-code {
-      @apply p-2 rounded-md;
-    }
     body {
       max-width: 50%;
       margin-left: auto;
