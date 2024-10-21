@@ -16,8 +16,12 @@ const dayOfWeek = props.date.toLocaleDateString("en-US", {
 });
 ---
 
-<div class="border p-2 rounded-md">
-  <a class="font-bold block" href={props.slug}>{props.title}</a>
+<a class="border p-2 rounded-md block no-style" href={props.slug}>
+  <div
+    class="font-bold block hover:underline dark:hover:text-blue-400 text-blue-600 hover:text-blue-800 dark:text-blue-200 transition ease-in-out"
+  >
+    {props.title}
+  </div>
   <span class="text-gray-400 text-xs">{dayOfWeek}</span>
   <p class="text-[1em]">{props.summary}</p>
-</div>
+</a>
