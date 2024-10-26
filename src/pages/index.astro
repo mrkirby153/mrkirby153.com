@@ -8,6 +8,7 @@ import type { Item } from "@components/FeaturedItems.astro";
 import { getFeaturedProjects, getFeaturedPosts } from "@utils/content";
 import { faWrench, faBook } from "@fortawesome/free-solid-svg-icons";
 import FontAwesomeIcon from "@components/FontAwesomeIcon.astro";
+import { Content as MainBio } from "./_bio.md";
 
 const featuredProjects = await getFeaturedProjects();
 const featuredProjectsItems: Item[] = featuredProjects.map((project) => ({
@@ -52,27 +53,9 @@ const featuredPostsItems: Item[] = featuredPosts.map((post) => {
     </div>
   </div>
 
-  <p>
-    I'm a software engineer who's passionate about infrastructure, automation,
-    and open source software. While I have a lot of experience working with Java
-    and Kotlin, I am always willing to learn something new.
-  </p>
-  <p>
-    For the last few years, I've been a software engineer at <a
-      href="https://discord.com"
-      target="_blank">Discord</a
-    > on the Realtime infrastructure team, building and scaling servers to millions
-    of users.
-  </p>
-  <p>
-    Some of the projects that I've worked on include <a
-      href="https://kirbot.mrkirby153.com"
-      target="_blank">KirBot</a
-    > and <a href="https://giveaways.mrkirby153.com" target="_blank"
-      >Giveaways</a
-    >. Check out the list of projects below for more projects that I've worked
-    on.
-  </p>
+  <div>
+    <MainBio />
+  </div>
 
   <h2 class="text-2xl mt-4 mb-2">
     <span class="header-icon"><FontAwesomeIcon icon={faWrench} /></span><a
