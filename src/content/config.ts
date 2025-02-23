@@ -9,6 +9,7 @@ const projectCollection = defineCollection({
     featured: z.optional(z.boolean()),
     date: z.date(),
     updated: z.optional(z.date()),
+    draft: z.optional(z.boolean()).default(false),
   }),
 });
 
@@ -18,6 +19,7 @@ const postCollection = defineCollection({
     title: z.string(),
     date: z.date(),
     summary: z.string(),
+    draft: z.optional(z.boolean()).default(false),
   }),
 });
 

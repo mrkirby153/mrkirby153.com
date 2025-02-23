@@ -4,7 +4,9 @@ import { getCollection } from "astro:content";
 
 import Nav from "@components/Nav.astro";
 
-const allProjects = await getCollection("projects");
+const allProjects = (await getCollection("projects")).filter((entry) => {
+  return process.env.NODE_ENV !== "production" || !entry.data.draft;
+});
 allProjects.sort((a, b) => {
   const dateA = new Date(a.data.date);
   const dateB = new Date(b.data.date);
