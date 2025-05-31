@@ -28,7 +28,7 @@ const { page } = Astro.props satisfies Props;
         return (
           <li>
             <PostEntry
-              slug={`/post/${post.slug}`}
+              slug={`/post/${post.id}`}
               date={post.data.date}
               title={post.data.title}
               summary={post.data.summary}

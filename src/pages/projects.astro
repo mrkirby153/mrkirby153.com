@@ -29,7 +29,7 @@ allProjects.sort((a, b) => {
       allProjects.map((project) => (
         <li>
           <>
-            <a href={`/project/${project.slug}`}>{project.data.title}</a>:
+            <a href={`/project/${project.id}`}>{project.data.title}</a>:
             <span>{project.data.summary}</span>
           </>
         </li>

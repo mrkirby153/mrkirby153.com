@@ -12,7 +12,7 @@ import { Content as MainBio } from "./_bio.md";
 
 const featuredProjects = await getFeaturedProjects();
 const featuredProjectsItems: Item[] = featuredProjects.map((project) => ({
-  slug: `/project/${project.slug}`,
+  slug: `/project/${project.id}`,
   title: project.data.title,
   summary: project.data.summary,
 }));
@@ -27,7 +27,7 @@ const featuredPostsItems: Item[] = featuredPosts.map((post) => {
   const formatedDay = day < 10 ? `0${day}` : day;
 
   return {
-    slug: `/post/${post.slug}`,
+    slug: `/post/${post.id}`,
     title: post.data.title,
     summary: `${year}-${formatedMonth}-${formatedDay}`,
   };

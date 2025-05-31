@@ -1,6 +1,6 @@
 ---
 import Post from "@layouts/Post.astro";
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("posts");
@@ -9,13 +9,13 @@ export async function getStaticPaths() {
       return process.env.NODE_ENV !== "production" || !entry.data.draft;
     })
     .map((entry) => ({
-      params: { slug: entry.slug },
+      params: { slug: entry.id },
       props: { entry },
     }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const dayOfWeek = new Date(entry.data.date).toLocaleDateString("en-US", {
   weekday: "long",
