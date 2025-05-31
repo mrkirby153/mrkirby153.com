@@ -22,7 +22,7 @@ export async function GET(context: APIContext) {
       pubDate: post.data.date,
       description: post.data.summary,
       link: `/post/${post.id}`,
-      content: sanitizeHtml(parser.render(post.body), {
+      content: sanitizeHtml(parser.render(post.body || ""), {
         allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
       }),
     })),

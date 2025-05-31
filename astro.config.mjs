@@ -1,6 +1,5 @@
 import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
-import tailwind from "@astrojs/tailwind";
 import react from "@astrojs/react";
 import expressiveCode from "astro-expressive-code";
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
@@ -9,9 +8,12 @@ import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
+import tailwindcss from "@tailwindcss/vite";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.mrkirby153.com",
+
   integrations: [
     expressiveCode({
       plugins: [pluginLineNumbers()],
@@ -23,11 +25,15 @@ export default defineConfig({
       remarkPlugins: [remarkMath, remarkToc],
       rehypePlugins: [rehypeKatex, rehypeAccessibleEmojis],
     }),
-    tailwind(),
     react(),
   ],
+
   markdown: {
     remarkPlugins: [remarkMath, remarkToc],
     rehypePlugins: [rehypeKatex, rehypeAccessibleEmojis],
+  },
+
+  vite: {
+    plugins: [tailwindcss()],
   },
 });
