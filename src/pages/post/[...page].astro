@@ -55,7 +55,7 @@ const { page } = Astro.props satisfies Props;
 </Layout>
 
 <style is:global>
-  @import "../../styles/global.css";
+  @reference "tailwindcss";
   body {
     @apply mx-auto md:max-w-[50%] max-w-[90%];
   }
