@@ -6,12 +6,20 @@ import "katex/dist/katex.min.css";
 interface Props {
   title: string;
   description?: string;
+  opengraph?: {
+    [key: string]: string;
+  };
 }
 
-const { title, description } = Astro.props;
+const { title, description, opengraph } = Astro.props;
 ---
 
-<Layout title={title} compactTop={true} description={description}>
+<Layout
+  title={title}
+  compactTop={true}
+  description={description}
+  opengraph={opengraph}
+>
   <Nav />
   <h1 class="text-4xl mb-2">{title}</h1>
   <slot />

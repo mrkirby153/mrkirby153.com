@@ -25,7 +25,17 @@ const dayOfWeek = new Date(entry.data.date).toLocaleDateString("en-US", {
 });
 ---
 
-<Post title={entry.data.title} description={entry.data.summary}>
+<Post
+  title={entry.data.title}
+  description={entry.data.summary}
+  opengraph={{
+    "og:title": entry.data.title,
+    "og:type": "article",
+    "og:url": new URL(Astro.url.pathname, Astro.site).toString(),
+    "og:image": `/open-graph/post/${entry.id}.png`,
+    "twitter:card": "summary_large_image",
+  }}
+>
   {
     entry.data.draft && (
       <div class="bg-yellow-100 text-yellow-800 p-2 rounded-md mb-2">

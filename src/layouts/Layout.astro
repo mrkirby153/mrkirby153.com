@@ -4,9 +4,12 @@ interface Props {
   title?: string;
   compactTop?: boolean;
   description?: string;
+  opengraph?: {
+    [key: string]: string;
+  };
 }
 
-const { title, compactTop, description } = Astro.props;
+const { title, compactTop, description, opengraph } = Astro.props;
 
 const realTitle = title ? `${title} | mrkirby153.com` : "mrkirby153.com";
 ---
@@ -18,6 +21,12 @@ const realTitle = title ? `${title} | mrkirby153.com` : "mrkirby153.com";
     <meta name="description" content={description || "mrkirby153.com"} />
     <meta name="viewport" content="width=device-width" />
     <meta name="darkreader-lock" />
+    {
+      opengraph &&
+        Object.entries(opengraph).map(([key, value]) => (
+          <meta property={key} content={value} />
+        ))
+    }
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <link
