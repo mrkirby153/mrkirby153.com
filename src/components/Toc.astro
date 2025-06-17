@@ -1,0 +1,64 @@
+---
+type TocItem = {
+  depth: number;
+  slug: string;
+  text: string;
+};
+
+interface Props {
+  toc: TocItem[];
+}
+
+const { toc } = Astro.props;
+
+function renderToc(items: TocItem[]): string {
+  const element = (i: TocItem) => {
+    return `<a href="#${i.slug}">${i.text}</a>`;
+  };
+
+  let html = "";
+  let currentDepth = items[0]?.depth || 0;
+  let openLists = [];
+
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    const nextItem = items[i + 1];
+
+    while (currentDepth > item.depth) {
+      html += `</ul>`;
+      openLists.pop();
+      currentDepth--;
+    }
+
+    if (currentDepth < item.depth) {
+      html += `<ul>`;
+      openLists.push("ul");
+      currentDepth++;
+    }
+
+    html += `<li>${element(item)}`;
+
+    if (nextItem && nextItem.depth > item.depth) {
+      // Don't close the list yet
+    } else {
+      html += "</li>";
+    }
+  }
+
+  while (openLists.length > 0) {
+    html += `</ul>`;
+    openLists.pop();
+  }
+
+  return html;
+}
+
+let rendered = renderToc(toc);
+---
+
+<h2 class="text-lg font-semibold mb-2">Table of Contents</h2>
+<div class="pl-5">
+  <div class="[&_ul]:list-disc [&_ul]:pl-6 [&_ul_li]:list-[circle] [&_li]:mb-1">
+    <Fragment set:html={rendered} />
+  </div>
+</div>

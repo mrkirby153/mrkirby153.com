@@ -27,6 +27,7 @@ const postCollection = defineCollection({
     date: z.date(),
     summary: z.string(),
     draft: z.optional(z.boolean()).default(false),
+    hideToc: z.optional(z.boolean()).default(false),
   }),
 });
 
