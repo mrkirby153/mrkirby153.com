@@ -36,8 +36,4 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-
-  redirects: {
-    "/post/[...page]": "/posts/[...page]",
-  },
 });
