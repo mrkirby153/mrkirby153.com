@@ -62,8 +62,9 @@ const dayOfWeek = new Date(entry.data.date).toLocaleDateString("en-US", {
   </div>
 
   <style is:global>
+    @reference "tailwindcss";
     body {
-      max-width: 50%;
+      @apply max-w-[90%] md:max-w-[50%];
       margin-left: auto;
       margin-right: auto;
     }
