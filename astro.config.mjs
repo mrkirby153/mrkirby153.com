@@ -8,6 +8,8 @@ import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
+import { imageService } from "@unpic/astro/service";
+
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
@@ -35,5 +37,10 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()],
+  },
+  image: {
+    service: imageService({
+      placeholder: "blurhash",
+    }),
   },
 });

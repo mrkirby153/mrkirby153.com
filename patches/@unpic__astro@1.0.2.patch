@@ -1,0 +1,19 @@
+diff --git a/dist/service/base.js b/dist/service/base.js
+index 09ab46eaa530355a7678f9d4a6f6e047a927ff3e..29a114a2c29451e7ea88403aadd4f984e3e49f0f 100644
+--- a/dist/service/base.js
++++ b/dist/service/base.js
+@@ -88,6 +88,14 @@ const service = {
+       ...transformOptions,
+       src: transformOptions.url.toString()
+     });
++
++    // Convert style object to string
++    if (props.style && typeof props.style === "object") {
++      const styleString = Object.entries(props.style)
++        .map(([key, value]) => `${key}: ${value};`)
++        .join(" ");
++      props.style = styleString;
++    }
+     return props;
+   }
+ };
