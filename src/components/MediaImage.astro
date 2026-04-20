@@ -1,5 +1,6 @@
 ---
 import { getBase64Blurhash } from "@app/utils/blurhash";
+import { Image } from "astro:assets";
 
 interface Props {
   src: string;
@@ -14,9 +15,18 @@ const thumbnailUrl = props.thumbnail || props.src;
 const blurhash = await getBase64Blurhash(thumbnailUrl);
 
 const aspectRatio = props.width / props.height;
+
+const imageId = `media-image-${Math.random().toString(36).substring(2, 9)}`;
+
+const styles = `
+  #${imageId} .real-image {
+    opacity: 1 !important;
+}
+`;
 ---
 
 <div
+  id={imageId}
   class="image-wrapper relative overflow-hidden"
   style={`aspect-ratio: ${aspectRatio};`}
 >
@@ -26,8 +36,8 @@ const aspectRatio = props.width / props.height;
     alt=""
     aria-hidden="true"
   />
-  <img
-    class="real-image absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0"
+  <Image
+    class="real-image absolute inset-0 w-full h-full object-cover transition-opacity"
     src={props.thumbnail || props.src}
     alt={props.alt || ""}
     width={props.width}
@@ -36,13 +46,7 @@ const aspectRatio = props.width / props.height;
   />
 </div>
 
-<noscript
-  ><style>
-    .image-wrapper .real-image {
-      opacity: 1 !important;
-    }
-  </style></noscript
->
+<noscript><style set:html={styles}></style></noscript>
 
 <script>
   document

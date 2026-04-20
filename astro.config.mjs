@@ -41,6 +41,8 @@ export default defineConfig({
   image: {
     service: imageService({
       placeholder: "blurhash",
+      fallbackService: "sharp",
     }),
+    domains: ["media.mrkirby153.com", "localhost"],
   },
 });
