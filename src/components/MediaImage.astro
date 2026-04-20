@@ -1,6 +1,7 @@
 ---
-import { getBase64Blurhash } from "@app/utils/blurhash";
+import { getBlurhash } from "@app/utils/blurhash";
 import { Image } from "astro:assets";
+import { blurhashToCssGradientString } from "@unpic/placeholder";
 
 interface Props {
   src: string;
@@ -8,59 +9,23 @@ interface Props {
   width: number;
   height: number;
   thumbnail?: string;
+  class?: string;
 }
 
 const props = Astro.props;
 const thumbnailUrl = props.thumbnail || props.src;
-const blurhash = await getBase64Blurhash(thumbnailUrl);
-
-const aspectRatio = props.width / props.height;
-
-const imageId = `media-image-${Math.random().toString(36).substring(2, 9)}`;
-
-const styles = `
-  #${imageId} .real-image {
-    opacity: 1 !important;
-}
-`;
+const blurhash = await getBlurhash(thumbnailUrl);
+const gradient = blurhashToCssGradientString(blurhash);
 ---
 
-<div
-  id={imageId}
-  class="image-wrapper relative overflow-hidden"
-  style={`aspect-ratio: ${aspectRatio};`}
->
-  <img
-    class="absolute inset-0 w-full h-full object-cover blur-[20px] scale-110"
-    src={blurhash}
-    alt=""
-    aria-hidden="true"
-  />
-  <Image
-    class="real-image absolute inset-0 w-full h-full object-cover transition-opacity"
-    src={props.thumbnail || props.src}
-    alt={props.alt || ""}
-    width={props.width}
-    height={props.height}
-    loading="lazy"
-  />
-</div>
-
-<noscript><style set:html={styles}></style></noscript>
-
-<script>
-  document
-    .querySelectorAll<HTMLImageElement>(".image-wrapper .real-image")
-    .forEach((img) => {
-      if (img.complete) {
-        img.classList.replace("opacity-0", "opacity-100");
-        img.classList.remove("transition-opacity", "duration-300");
-      } else {
-        img.addEventListener(
-          "load",
-          () => img.classList.replace("opacity-0", "opacity-100"),
-          { once: true },
-        );
-      }
-    });
-</script>
+<Image
+  class={`w-full h-full object-cover rounded-md ${props.class || ""}`}
+  src={thumbnailUrl}
+  alt={props.alt || ""}
+  width={props.width}
+  height={props.height}
+  loading="lazy"
+  style={{
+    background: gradient,
+  }}
+/>

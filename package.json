@@ -27,6 +27,7 @@
     "@types/react-dom": "^18.3.7",
     "@types/sanitize-html": "^2.16.0",
     "@unpic/astro": "^1.0.2",
+    "@unpic/placeholder": "^0.1.2",
     "astro": "^5.18.0",
     "astro-expressive-code": "^0.41.5",
     "astro-og-canvas": "^0.7.2",

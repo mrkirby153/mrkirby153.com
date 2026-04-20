@@ -61,6 +61,9 @@ importers:
       '@unpic/astro':
         specifier: ^1.0.2
         version: 1.0.2(patch_hash=efjkbafqzvc67aqmrm5iteovqy)(astro@5.18.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2))
+      '@unpic/placeholder':
+        specifier: ^0.1.2
+        version: 0.1.2
       astro:
         specifier: ^5.18.0
         version: 5.18.0(@types/node@22.19.3)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.5)(typescript@5.9.3)(yaml@2.8.2)

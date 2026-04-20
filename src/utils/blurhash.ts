@@ -1,4 +1,4 @@
-import { encode, decode } from "blurhash";
+import { encode } from "blurhash";
 import sharp from "sharp";
 import { readFileSync, writeFileSync, mkdirSync } from "fs";
 import { join, dirname } from "path";
@@ -20,7 +20,7 @@ function saveCache(cache: Record<string, string>) {
 
 const cache = loadCache();
 
-export async function getBase64Blurhash(imageUrl: string): Promise<string> {
+export async function getBlurhash(imageUrl: string): Promise<string> {
   if (cache[imageUrl]) return cache[imageUrl];
 
   const response = await fetch(imageUrl);
@@ -39,16 +39,7 @@ export async function getBase64Blurhash(imageUrl: string): Promise<string> {
     4,
     4,
   );
-  const pixels = decode(hash, 32, 32);
-
-  const png = await sharp(Buffer.from(pixels), {
-    raw: { width: 32, height: 32, channels: 4 },
-  })
-    .png()
-    .toBuffer();
-
-  const base64 = `data:image/png;base64,${png.toString("base64")}`;
-  cache[imageUrl] = base64;
+  cache[imageUrl] = hash;
   saveCache(cache);
-  return base64;
+  return hash;
 }

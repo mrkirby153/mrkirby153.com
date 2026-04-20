@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import Nav from "@components/Nav.astro";
 import MediaImage from "@components/MediaImage.astro";
 import photos from "@app/data/photos.json";
+import { getBlurhash } from "@utils/blurhash";
 
 interface Photo {
   url: string;
@@ -14,10 +15,27 @@ interface Photo {
     iso: number;
     aperture: number;
     focalLength: number;
+    model: string;
   };
 }
-
 const photosTyped = photos as Photo[];
+
+const blurhashes: Record<string, string> = {};
+for (const photo of photosTyped) {
+  blurhashes[photo.url] = await getBlurhash(photo.url);
+}
+
+const CAMERA_MODEL_OVERRIDE: Record<string, string> = {
+  "ILCE-7CM2": "Sony a7CII",
+};
+
+function getAperture(aperture: number) {
+  return Number.isInteger(aperture) ? aperture : aperture.toFixed(1);
+}
+
+function getModel(model: string) {
+  return CAMERA_MODEL_OVERRIDE[model] || model;
+}
 ---
 
 <Layout title="Photos" compactTop>
@@ -32,18 +50,27 @@ const photosTyped = photos as Photo[];
             class="photo-item group relative mb-2 break-inside-avoid cursor-pointer"
             data-full={photo.url}
             data-alt={photo.filename}
+            data-blurhash={blurhashes[photo.url]}
           >
             <MediaImage
+              class="rounded-md"
               src={photo.url}
               thumbnail={photo.thumbnail}
               alt={photo.filename}
               width={photo.metadata.width}
               height={photo.metadata.height}
             />
-            <figcaption class="absolute bottom-0 left-0 right-0 flex gap-3 px-2 py-3 text-white text-sm bg-linear-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-              <span>ISO {iso}</span>
-              <span>f/{aperture}</span>
-              <span>{Math.round(focalLength)}mm</span>
+            <figcaption class="absolute bottom-0 left-0 right-0 px-2 py-3 text-white text-sm bg-linear-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-b-md">
+              <div class="float-left flex gap-3">
+                {iso && <span>ISO {iso}</span>}
+                {aperture && <span>f/{getAperture(aperture)}</span>}
+                {focalLength && <span>{Math.round(focalLength)}mm</span>}
+              </div>
+              <div class="float-right flex gap-3">
+                {photo.metadata.model && (
+                  <span>{getModel(photo.metadata.model)}</span>
+                )}
+              </div>
             </figcaption>
           </figure>
         );
@@ -80,10 +107,18 @@ const photosTyped = photos as Photo[];
 </style>
 
 <script>
+  import { blurhashToCssGradientString } from "@unpic/placeholder";
   const lightbox = document.getElementById("lightbox") as HTMLDialogElement;
   const lightboxImg = document.getElementById(
     "lightbox-img",
   ) as HTMLImageElement;
+
+  function close() {
+    lightbox.close();
+    lightboxImg.src = "";
+    lightboxImg.alt = "";
+    lightbox.style.background = "";
+  }
 
   // Only enable lightbox on devices with a fine pointer
   if (window.matchMedia("(pointer: fine)").matches) {
@@ -91,16 +126,19 @@ const photosTyped = photos as Photo[];
       item.addEventListener("click", () => {
         lightboxImg.src = item.dataset.full!;
         lightboxImg.alt = item.dataset.alt || "";
+        lightbox.style.background = blurhashToCssGradientString(
+          item.dataset.blurhash!,
+        );
         lightbox.showModal();
       });
     });
   }
 
   document.getElementById("lightbox-close")!.addEventListener("click", () => {
-    lightbox.close();
+    close();
   });
 
   lightbox.addEventListener("click", (e) => {
-    if (e.target === lightbox) lightbox.close();
+    if (e.target === lightbox) close();
   });
 </script>
