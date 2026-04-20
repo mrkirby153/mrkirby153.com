@@ -7,7 +7,8 @@
     "start": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "fetch-photos": "node scripts/photos.js"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.6",
@@ -29,6 +30,7 @@
     "astro": "^5.18.0",
     "astro-expressive-code": "^0.41.5",
     "astro-og-canvas": "^0.7.2",
+    "blurhash": "^2.0.5",
     "canvaskit-wasm": "^0.40.0",
     "katex": "^0.16.27",
     "markdown-it": "^14.1.0",

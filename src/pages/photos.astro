@@ -1,0 +1,106 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Nav from "@components/Nav.astro";
+import MediaImage from "@components/MediaImage.astro";
+import photos from "@app/data/photos.json";
+
+interface Photo {
+  url: string;
+  thumbnail: string;
+  filename: string;
+  metadata: {
+    width: number;
+    height: number;
+    iso: number;
+    aperture: number;
+    focalLength: number;
+  };
+}
+
+const photosTyped = photos as Photo[];
+---
+
+<Layout title="Photos" compactTop>
+  <Nav />
+  <h1 class="text-4xl mb-3">Photos</h1>
+  <div class="md:columns-3 gap-3 mb-2">
+    {
+      photosTyped.map((photo) => {
+        const { iso, aperture, focalLength } = photo.metadata;
+        return (
+          <figure
+            class="photo-item group relative mb-2 break-inside-avoid cursor-pointer"
+            data-full={photo.url}
+            data-alt={photo.filename}
+          >
+            <MediaImage
+              src={photo.url}
+              thumbnail={photo.thumbnail}
+              alt={photo.filename}
+              width={photo.metadata.width}
+              height={photo.metadata.height}
+            />
+            <figcaption class="absolute bottom-0 left-0 right-0 flex gap-3 px-2 py-3 text-white text-sm bg-linear-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <span>ISO {iso}</span>
+              <span>f/{aperture}</span>
+              <span>{Math.round(focalLength)}mm</span>
+            </figcaption>
+          </figure>
+        );
+      })
+    }
+  </div>
+
+  <dialog
+    id="lightbox"
+    aria-modal="true"
+    role="dialog"
+    class="fixed inset-0 m-auto max-w-[95vw] max-h-[95vh] w-fit bg-transparent border-none p-0 backdrop:bg-black/80 backdrop:cursor-pointer"
+  >
+    <button
+      id="lightbox-close"
+      aria-label="Close"
+      class="fixed top-4 right-4 bg-transparent border-none text-white text-4xl leading-none cursor-pointer py-1 px-2"
+      >&times;</button
+    >
+    <img
+      id="lightbox-img"
+      src=""
+      alt=""
+      class="block max-w-[95vw] max-h-[95vh] object-contain"
+    />
+  </dialog>
+</Layout>
+
+<style is:global>
+  @reference "tailwindcss";
+  body {
+    @apply mx-auto md:max-w-[75%] max-w-[90%];
+  }
+</style>
+
+<script>
+  const lightbox = document.getElementById("lightbox") as HTMLDialogElement;
+  const lightboxImg = document.getElementById(
+    "lightbox-img",
+  ) as HTMLImageElement;
+
+  // Only enable lightbox on devices with a fine pointer
+  if (window.matchMedia("(pointer: fine)").matches) {
+    document.querySelectorAll<HTMLElement>(".photo-item").forEach((item) => {
+      item.addEventListener("click", () => {
+        lightboxImg.src = item.dataset.full!;
+        lightboxImg.alt = item.dataset.alt || "";
+        lightbox.showModal();
+      });
+    });
+  }
+
+  document.getElementById("lightbox-close")!.addEventListener("click", () => {
+    lightbox.close();
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target === lightbox) lightbox.close();
+  });
+</script>

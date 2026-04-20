@@ -1,0 +1,62 @@
+---
+import { getBase64Blurhash } from "@app/utils/blurhash";
+
+interface Props {
+  src: string;
+  alt?: string;
+  width: number;
+  height: number;
+  thumbnail?: string;
+}
+
+const props = Astro.props;
+const thumbnailUrl = props.thumbnail || props.src;
+const blurhash = await getBase64Blurhash(thumbnailUrl);
+
+const aspectRatio = props.width / props.height;
+---
+
+<div
+  class="image-wrapper relative overflow-hidden"
+  style={`aspect-ratio: ${aspectRatio};`}
+>
+  <img
+    class="absolute inset-0 w-full h-full object-cover blur-[20px] scale-110"
+    src={blurhash}
+    alt=""
+    aria-hidden="true"
+  />
+  <img
+    class="real-image absolute inset-0 w-full h-full object-cover transition-opacity duration-300 opacity-0"
+    src={props.thumbnail || props.src}
+    alt={props.alt || ""}
+    width={props.width}
+    height={props.height}
+    loading="lazy"
+  />
+</div>
+
+<noscript
+  ><style>
+    .image-wrapper .real-image {
+      opacity: 1 !important;
+    }
+  </style></noscript
+>
+
+<script>
+  document
+    .querySelectorAll<HTMLImageElement>(".image-wrapper .real-image")
+    .forEach((img) => {
+      if (img.complete) {
+        img.classList.replace("opacity-0", "opacity-100");
+        img.classList.remove("transition-opacity", "duration-300");
+      } else {
+        img.addEventListener(
+          "load",
+          () => img.classList.replace("opacity-0", "opacity-100"),
+          { once: true },
+        );
+      }
+    });
+</script>
