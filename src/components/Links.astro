@@ -20,6 +20,7 @@ interface Link {
   icon: LinkIcon;
   url: string;
   name: string;
+  label: string;
   rel?: boolean;
   hover?: string;
   blank?: boolean;
@@ -32,12 +33,15 @@ const links = [
       icon: faTwitter,
       altIcon: faXTwitter,
     },
+    label: "Twitter",
     url: "https://twitter.com/mrkirby153",
     hover: "[#1D9BF0]", // hover:text-[#1D9BF0]
   },
   {
     name: "github",
     icon: faGithub,
+    label: "GitHub",
+
     url: "https://github.com/mrkirby153",
   },
   {
@@ -45,18 +49,21 @@ const links = [
     icon: faMastodon,
     url: "https://mastodon.social/@mrkirby153",
     rel: true,
+    label: "Mastodon",
     hover: "[#6364FF]", // hover:text-[#6364FF]
   },
   {
     name: "gpg",
     icon: faKey,
     url: "/pubkey.gpg",
+    label: "GPG Public Key",
     hover: "[#976F47]", // hover:text-[#976F47]
   },
   {
     name: "photos",
     icon: faCamera,
     url: "/photos",
+    label: "Photos",
     hover: "[#FF6F61]", // hover:text-[#FF6F61]
     blank: false,
   },
@@ -95,6 +102,7 @@ function getAltIcon(link: AlternateIcon): IconDefinition {
             href={link.url}
             target={(link.blank ?? true) ? "_blank" : "_self"}
             rel={link.rel ? "me" : null}
+            aria-label={link.label}
           >
             <span
               data-icon-swap={isAlternateIcon(link.icon) ? "primary" : null}
