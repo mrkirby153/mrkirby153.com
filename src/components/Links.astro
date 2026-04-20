@@ -7,22 +7,31 @@ import {
   faMastodon,
   faXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { faKey } from "@fortawesome/free-solid-svg-icons";
+import { faCamera, faKey } from "@fortawesome/free-solid-svg-icons";
+
+type AlternateIcon = {
+  icon: IconDefinition;
+  altIcon: IconDefinition;
+};
+
+type LinkIcon = IconDefinition | AlternateIcon;
 
 interface Link {
-  icon: IconDefinition;
-  altIcon?: IconDefinition;
+  icon: LinkIcon;
   url: string;
   name: string;
   rel?: boolean;
   hover?: string;
+  blank?: boolean;
 }
 
 const links = [
   {
     name: "twitter",
-    icon: faTwitter,
-    altIcon: faXTwitter,
+    icon: {
+      icon: faTwitter,
+      altIcon: faXTwitter,
+    },
     url: "https://twitter.com/mrkirby153",
     hover: "[#1D9BF0]", // hover:text-[#1D9BF0]
   },
@@ -44,7 +53,31 @@ const links = [
     url: "/pubkey.gpg",
     hover: "[#976F47]", // hover:text-[#976F47]
   },
+  {
+    name: "photos",
+    icon: faCamera,
+    url: "/photos",
+    hover: "[#FF6F61]", // hover:text-[#FF6F61]
+    blank: false,
+  },
 ] satisfies Link[];
+
+function isAlternateIcon(
+  icon: IconDefinition | AlternateIcon,
+): icon is AlternateIcon {
+  return (icon as AlternateIcon).altIcon !== undefined;
+}
+
+function getIcon(icon: LinkIcon): IconDefinition {
+  if (isAlternateIcon(icon)) {
+    return icon.icon;
+  }
+  return icon;
+}
+
+function getAltIcon(link: AlternateIcon): IconDefinition {
+  return link.altIcon;
+}
 ---
 
 <div class="flex">
@@ -60,15 +93,20 @@ const links = [
           <a
             class={`dark:text-white text-black hover:${hoverColor} hover:cursor-pointer inline-block w-[2rem] no-style`}
             href={link.url}
-            target="_blank"
+            target={(link.blank ?? true) ? "_blank" : "_self"}
             rel={link.rel ? "me" : null}
           >
-            <span data-icon-swap={link.altIcon ? "primary" : null}>
-              <FontAwesomeIcon icon={link.icon} />
+            <span
+              data-icon-swap={isAlternateIcon(link.icon) ? "primary" : null}
+            >
+              <FontAwesomeIcon icon={getIcon(link.icon)} />
             </span>
-            {link.altIcon && (
-              <span class="hidden" data-icon-swap={link.altIcon ? "alt" : null}>
-                <FontAwesomeIcon icon={faXTwitter} />
+            {isAlternateIcon(link.icon) && (
+              <span
+                class="hidden"
+                data-icon-swap={getAltIcon(link.icon) ? "alt" : null}
+              >
+                <FontAwesomeIcon icon={getAltIcon(link.icon)} />
               </span>
             )}
           </a>
@@ -88,7 +126,7 @@ const links = [
   icons.forEach((icon) => {
     invariant(
       icon instanceof HTMLElement,
-      "Expected icon to be an HTMLElement"
+      "Expected icon to be an HTMLElement",
     );
     if (icon.dataset.iconSwap === "primary") {
       primaryIcons.push(icon);
