@@ -8,19 +8,18 @@ interface Props {
   alt?: string;
   width: number;
   height: number;
-  thumbnail?: string;
   class?: string;
+  quality?: number;
 }
 
 const props = Astro.props;
-const thumbnailUrl = props.thumbnail || props.src;
-const blurhash = await getBlurhash(thumbnailUrl);
+const blurhash = await getBlurhash(props.src);
 const gradient = blurhashToCssGradientString(blurhash);
 ---
 
 <Image
   class={`w-full h-full object-cover rounded-md ${props.class || ""}`}
-  src={thumbnailUrl}
+  src={props.src}
   alt={props.alt || ""}
   width={props.width}
   height={props.height}
@@ -28,4 +27,6 @@ const gradient = blurhashToCssGradientString(blurhash);
   style={{
     background: gradient,
   }}
+  quality={props.quality || 80}
+  format="webp"
 />

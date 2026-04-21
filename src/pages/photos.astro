@@ -45,6 +45,8 @@ function getModel(model: string) {
     {
       photosTyped.map((photo) => {
         const { iso, aperture, focalLength } = photo.metadata;
+        const displayWidth = 800;
+        const displayHeight = Math.round(displayWidth * photo.metadata.height / photo.metadata.width);
         return (
           <figure
             class="photo-item group relative mb-2 break-inside-avoid cursor-pointer"
@@ -55,10 +57,9 @@ function getModel(model: string) {
             <MediaImage
               class="rounded-md"
               src={photo.url}
-              thumbnail={photo.thumbnail}
               alt={photo.filename}
-              width={photo.metadata.width}
-              height={photo.metadata.height}
+              width={displayWidth}
+              height={displayHeight}
             />
             <figcaption class="absolute bottom-0 left-0 right-0 px-2 py-3 text-white text-sm bg-linear-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-b-md">
               <div class="float-left flex gap-3">
