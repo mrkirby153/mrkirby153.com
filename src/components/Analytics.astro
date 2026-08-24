@@ -1,0 +1,100 @@
+---
+type Configuration = {
+  hostUrl?: string;
+  autoTrack?: boolean;
+  autoPageview?: boolean;
+  domains?: string[];
+  tag?: string;
+  performance?: boolean;
+  excludeSearch?: boolean;
+  excludeHash?: boolean;
+  doNotTrack?: boolean;
+};
+
+interface Props {
+  /**
+   * The site ID configured in Umami
+   */
+  siteId: string;
+  /**
+   * The domain of the umami instance
+   */
+  hostDomain: string;
+  /**
+   * Whether to use a secure connection (https) when loading the script
+   */
+  secure?: boolean;
+  /**
+   * The path to the umami script, defaults to /script.js
+   */
+  path?: string;
+  /**
+   * Additional configuration for umami
+   */
+  config?: Configuration;
+
+  /**
+   * Force enable even in development mode.
+   */
+  forceEnabled?: boolean;
+}
+
+type ConfigurationOption = keyof Configuration;
+type ConfigurationMapping<T extends ConfigurationOption> = {
+  attr: string;
+  mapper(value: Configuration[T]): string | undefined;
+};
+type Mapping<T extends ConfigurationOption> = string | ConfigurationMapping<T>;
+
+const dataMappings: { [K in ConfigurationOption]: Mapping<K> } = {
+  hostUrl: "host-url",
+  autoTrack: "auto-track",
+  autoPageview: "auto-pageview",
+  domains: {
+    attr: "domains",
+    mapper: (value) => value?.join(","),
+  },
+  tag: "tag",
+  performance: "performance",
+  excludeSearch: "exclude-search",
+  excludeHash: "exclude-hash",
+  doNotTrack: "do-not-track",
+};
+
+const props = Astro.props;
+
+function isMapping(
+  mapping: Mapping<ConfigurationOption>,
+): mapping is ConfigurationMapping<ConfigurationOption> {
+  // Intentionally loose typing
+  return typeof mapping === "object";
+}
+
+const enabled = props.forceEnabled || import.meta.env.PROD;
+
+const dataAttributes = Object.entries(props.config || {}).map(
+  ([key, value]) => {
+    if (!value) return undefined;
+    const mappingData = dataMappings[key as ConfigurationOption];
+    if (isMapping(mappingData)) {
+      return [`data-${mappingData.attr}`, mappingData.mapper(value as any)];
+    }
+    return [`data-${mappingData}`, new String(value).toLowerCase()];
+  },
+);
+
+const protocol = (props.secure ?? true) ? "https" : "http";
+const scriptSrc = `${protocol}://${props.hostDomain}${props.path || "/script.js"}`;
+---
+
+{
+  enabled && (
+    <script
+      defer
+      is:inline
+      src={scriptSrc}
+      data-website-id={props.siteId}
+      {...dataAttributes}
+    />
+  )
+}

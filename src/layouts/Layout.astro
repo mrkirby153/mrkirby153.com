@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Analytics from "../components/Analytics.astro";
 interface Props {
   title?: string;
   compactTop?: boolean;
@@ -27,6 +28,11 @@ const realTitle = title ? `${title} | mrkirby153.com` : "mrkirby153.com";
           <meta property={key} content={value} />
         ))
     }
+    <Analytics
+      siteId="e399ff75-024c-4d7a-95cb-43207dbc4000"
+      hostDomain="mrkirby153.com"
+      path="/_u/client.js"
+    />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <link
