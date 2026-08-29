@@ -9,14 +9,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-      - name: Set up Node.JS
-        uses: actions/setup-node@v7
-        with:
-          node-version: "26"
       - name: Set up pnpm
         uses: pnpm/setup@v2
         with:
           version: "^11.0.0"
+      - name: Set up Node.JS
+        uses: actions/setup-node@v7
+        with:
+          node-version: "26"
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - name: Install dependencies
+        run: pnpm install -P --frozen-lockfile
+      - name: Restore Astro caches
+        uses: actions/cache@v5
+        with:
+          path: |
+            node_modules/.astro
+            .astro/blurhash-cache.json
+          key: ${{ runner.os }}-astro-v1-${{ hashFiles('pnpm-lock.yaml') }}-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-astro-v1-${{ hashFiles('pnpm-lock.yaml') }}-
       - name: Connect to tailscale
         uses: tailscale/github-action@v4
         with:
@@ -25,7 +38,7 @@ jobs:
           tags: tag:ci
           args: --accept-dns=false
       - name: Build site
-        run: pnpm install -P && pnpm build
+        run: pnpm build
       - name: Configure SSH
         run: |
           mkdir -p ~/.ssh/
