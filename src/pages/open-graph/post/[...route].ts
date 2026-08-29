@@ -13,7 +13,6 @@ const getImageOptions: GetImageOptions = (_path: string, page: any) => ({
 });
 
 export const { getStaticPaths, GET } = await forCollection(
-  "route",
   "posts",
   getImageOptions
 );

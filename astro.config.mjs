@@ -7,12 +7,17 @@ import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import { unified } from "@astrojs/markdown-remark";
 
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.mrkirby153.com",
+
+  // Preserve the Astro v6 HTML whitespace behavior. The v7 default is
+  // `compressHTML: 'jsx'`, which strips whitespace between inline elements.
+  compressHTML: true,
 
   integrations: [
     expressiveCode({
@@ -21,16 +26,19 @@ export default defineConfig({
         showLineNumbers: false,
       },
     }),
-    mdx({
-      remarkPlugins: [remarkMath, remarkToc],
-      rehypePlugins: [rehypeKatex, rehypeAccessibleEmojis],
-    }),
+    // The MDX integration inherits the markdown config below (unified
+    // processor + remark/rehype plugins), so no per-integration plugins needed.
+    mdx(),
     react(),
   ],
 
   markdown: {
-    remarkPlugins: [remarkMath, remarkToc],
-    rehypePlugins: [rehypeKatex, rehypeAccessibleEmojis],
+    // Keep the remark/rehype plugin pipeline (remark-math, remark-toc,
+    // rehype-katex, rehype-accessible-emojis) by using the Unified processor.
+    processor: unified({
+      remarkPlugins: [remarkMath, remarkToc],
+      rehypePlugins: [rehypeKatex, rehypeAccessibleEmojis],
+    }),
   },
 
   vite: {

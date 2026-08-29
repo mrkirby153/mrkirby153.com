@@ -5,7 +5,6 @@ type OGImageRouteConfig = Parameters<typeof OGImageRoute>[0];
 export type GetImageOptions = OGImageRouteConfig["getImageOptions"];
 
 export async function forCollection(
-  param: string,
   collection: CollectionKey,
   getImageOptions?: GetImageOptions
 ) {
@@ -15,7 +14,6 @@ export async function forCollection(
   );
 
   return OGImageRoute({
-    param,
     pages,
     getImageOptions: (path: string, page: any) => {
       if (getImageOptions) {
