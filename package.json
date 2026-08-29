@@ -48,7 +48,8 @@
     "typescript": "^5.9.3"
   },
   "devDependencies": {
-    "@types/node": "^22.19.3"
+    "@types/node": "^22.19.3",
+    "@types/umami-browser": "^2.18.1"
   },
   "pnpm": {}
 }

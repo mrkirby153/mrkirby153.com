@@ -1,1 +1,722 @@
-[]
+[
+  {
+    "filename": "DSC00907.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00907.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00907.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 500,
+      "aperture": 2.8,
+      "focalLength": 70,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-08T12:59:28"
+    }
+  },
+  {
+    "filename": "DSC00878.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00878.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00878.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 3147,
+      "iso": 320,
+      "aperture": 2.8,
+      "focalLength": 57.9,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-08T12:24:10"
+    }
+  },
+  {
+    "filename": "DSC00876.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00876.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00876.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 320,
+      "aperture": 2.8,
+      "focalLength": 44,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-08T12:23:35"
+    }
+  },
+  {
+    "filename": "DSC00860.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00860.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00860.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 800,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-08T11:03:34"
+    }
+  },
+  {
+    "filename": "DSC00851.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00851.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00851.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 160,
+      "aperture": 4,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-08T07:03:08"
+    }
+  },
+  {
+    "filename": "DSC00838.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00838.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00838.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 125,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-08T06:00:04"
+    }
+  },
+  {
+    "filename": "DSC00831.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00831.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00831.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 1000,
+      "aperture": 8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-08T05:52:19"
+    }
+  },
+  {
+    "filename": "DSC00829.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00829.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00829.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 6400,
+      "aperture": 8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-08T05:51:20"
+    }
+  },
+  {
+    "filename": "DSC00828.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00828.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00828.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 3200,
+      "aperture": 8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-08T05:50:12"
+    }
+  },
+  {
+    "filename": "DSC00824.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00824.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00824.jpg",
+    "metadata": {
+      "width": 2667,
+      "height": 4000,
+      "iso": 320,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-08T05:46:44"
+    }
+  },
+  {
+    "filename": "DSC00823.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00823.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00823.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 400,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-08T05:46:41"
+    }
+  },
+  {
+    "filename": "DSC00801.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00801.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00801.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 500,
+      "aperture": 8,
+      "focalLength": 47.4,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-07T09:55:24"
+    }
+  },
+  {
+    "filename": "DSC00795.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00795.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00795.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 400,
+      "aperture": 3.2,
+      "focalLength": 49.1,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-07T09:43:53"
+    }
+  },
+  {
+    "filename": "DSC00794.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00794.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00794.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 400,
+      "aperture": 4,
+      "focalLength": 39.3,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-07T09:42:54"
+    }
+  },
+  {
+    "filename": "DSC00793.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00793.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00793.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 250,
+      "aperture": 4,
+      "focalLength": 48.2,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-07T09:29:38"
+    }
+  },
+  {
+    "filename": "DSC00791.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00791.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00791.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 2000,
+      "aperture": 8,
+      "focalLength": 66.8,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-07T09:21:11"
+    }
+  },
+  {
+    "filename": "DSC00739.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00739.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00739.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 1000,
+      "aperture": 8,
+      "focalLength": 70,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-06T11:49:09"
+    }
+  },
+  {
+    "filename": "DSC00728.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00728.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00728.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 160,
+      "aperture": 2.8,
+      "focalLength": 59.5,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-05T14:44:33"
+    }
+  },
+  {
+    "filename": "DSC00724.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00724.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00724.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 1250,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-05T14:36:21"
+    }
+  },
+  {
+    "filename": "DSC00723.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00723.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00723.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 3021,
+      "iso": 5000,
+      "aperture": 8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-05T14:35:59"
+    }
+  },
+  {
+    "filename": "DSC00686.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00686.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00686.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 100,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-05T12:31:47"
+    }
+  },
+  {
+    "filename": "DSC00682.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00682.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00682.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 1250,
+      "aperture": 8,
+      "focalLength": 70,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-05T12:28:18"
+    }
+  },
+  {
+    "filename": "DSC00673.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00673.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00673.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 1250,
+      "aperture": 4,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-05T11:08:48"
+    }
+  },
+  {
+    "filename": "DSC00669.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00669.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00669.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 125,
+      "aperture": 8,
+      "focalLength": 52.5,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-05T10:56:06"
+    }
+  },
+  {
+    "filename": "DSC00650.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00650.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00650.jpg",
+    "metadata": {
+      "width": 2667,
+      "height": 4000,
+      "iso": 200,
+      "aperture": 22,
+      "focalLength": 48.7,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-05T10:02:57"
+    }
+  },
+  {
+    "filename": "DSC00634.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00634.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00634.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 100,
+      "aperture": 8,
+      "focalLength": 53.7,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-05T09:49:16"
+    }
+  },
+  {
+    "filename": "DSC00589.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00589.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00589.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 100,
+      "aperture": 6.3,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-04T09:46:43"
+    }
+  },
+  {
+    "filename": "DSC00588.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00588.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00588.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 100,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-04T09:44:45"
+    }
+  },
+  {
+    "filename": "DSC00578.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00578.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00578.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 3200,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-04T09:38:57"
+    }
+  },
+  {
+    "filename": "DSC00554.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00554.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00554.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 160,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-03T11:19:04"
+    }
+  },
+  {
+    "filename": "DSC00542.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00542.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00542.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 800,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-03T11:06:17"
+    }
+  },
+  {
+    "filename": "DSC00506.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00506.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00506.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 800,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-03T10:16:44"
+    }
+  },
+  {
+    "filename": "DSC00454.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00454.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00454.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 125,
+      "aperture": 4,
+      "focalLength": 70,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-02T11:33:22"
+    }
+  },
+  {
+    "filename": "DSC00441.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00441.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00441.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 125,
+      "aperture": 5.6,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-02T11:20:45"
+    }
+  },
+  {
+    "filename": "DSC00417.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00417.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00417.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 100,
+      "aperture": 14,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-02T10:21:50"
+    }
+  },
+  {
+    "filename": "DSC00401.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00401.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00401.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 100,
+      "aperture": 8,
+      "focalLength": 63.4,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-01T14:16:12"
+    }
+  },
+  {
+    "filename": "DSC00376.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00376.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00376.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 125,
+      "aperture": 2.8,
+      "focalLength": 59.9,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-01T10:06:17"
+    }
+  },
+  {
+    "filename": "DSC00369.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00369.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00369.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 125,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-01T09:50:23"
+    }
+  },
+  {
+    "filename": "DSC00366.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00366.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00366.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 125,
+      "aperture": 8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-06-01T09:40:45"
+    }
+  },
+  {
+    "filename": "DSC00300.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00300.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00300.jpg",
+    "metadata": {
+      "width": 2667,
+      "height": 4000,
+      "iso": 100,
+      "aperture": 4.5,
+      "focalLength": 50.4,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-04-11T12:14:52"
+    }
+  },
+  {
+    "filename": "DSC00282.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00282.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00282.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 100,
+      "aperture": 4.5,
+      "focalLength": 70,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-04-10T14:53:24"
+    }
+  },
+  {
+    "filename": "DSC00251.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00251.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00251.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 100,
+      "aperture": 10,
+      "focalLength": 70,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-04-10T13:41:11"
+    }
+  },
+  {
+    "filename": "DSC00249.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00249.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00249.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 100,
+      "aperture": 10,
+      "focalLength": 70,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-04-10T13:40:32"
+    }
+  },
+  {
+    "filename": "DSC00245.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00245.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00245.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 100,
+      "aperture": 4.5,
+      "focalLength": 70,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2026-04-10T13:38:04"
+    }
+  },
+  {
+    "filename": "DSC00053.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00053.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00053.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 2000,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2025-12-26T19:31:48"
+    }
+  },
+  {
+    "filename": "DSC00052.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00052.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00052.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 1600,
+      "aperture": 2.8,
+      "focalLength": 24,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2025-12-26T19:31:32"
+    }
+  },
+  {
+    "filename": "DSC00039.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00039.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00039.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 12800,
+      "aperture": 2.8,
+      "focalLength": 51.6,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2025-12-26T19:21:56"
+    }
+  },
+  {
+    "filename": "DSC00037.jpg",
+    "url": "https://media.mrkirby153.com/images/DSC00037.jpg",
+    "thumbnail": "https://media.mrkirby153.com/images/thumbnail/DSC00037.jpg",
+    "metadata": {
+      "width": 4000,
+      "height": 2667,
+      "iso": 3200,
+      "aperture": 2.8,
+      "focalLength": 70,
+      "lens": "24-70mm F2.8 DG DN II | Art 024",
+      "model": "ILCE-7CM2",
+      "createdAt": "2025-12-26T19:20:04"
+    }
+  }
+]

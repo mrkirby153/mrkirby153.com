@@ -46,11 +46,14 @@ function getModel(model: string) {
       photosTyped.map((photo) => {
         const { iso, aperture, focalLength } = photo.metadata;
         const displayWidth = 800;
-        const displayHeight = Math.round(displayWidth * photo.metadata.height / photo.metadata.width);
+        const displayHeight = Math.round(
+          (displayWidth * photo.metadata.height) / photo.metadata.width,
+        );
         return (
           <figure
             class="photo-item group relative mb-2 break-inside-avoid cursor-pointer"
             data-full={photo.url}
+            data-filename={photo.filename}
             data-alt={photo.filename}
             data-blurhash={blurhashes[photo.url]}
           >
@@ -121,6 +124,14 @@ function getModel(model: string) {
     lightbox.style.background = "";
   }
 
+  function trackEvent(filename: string) {
+    if (typeof window.umami !== "undefined") {
+      void window.umami.track("photo-opened", {
+        filename,
+      });
+    }
+  }
+
   // Only enable lightbox on devices with a fine pointer
   if (window.matchMedia("(pointer: fine)").matches) {
     document.querySelectorAll<HTMLElement>(".photo-item").forEach((item) => {
@@ -130,6 +141,7 @@ function getModel(model: string) {
         lightbox.style.background = blurhashToCssGradientString(
           item.dataset.blurhash!,
         );
+        trackEvent(item.dataset.filename!);
         lightbox.showModal();
       });
     });
