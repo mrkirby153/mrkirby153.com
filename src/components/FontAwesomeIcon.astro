@@ -10,7 +10,12 @@ const { icon: iconProp } = Astro.props;
 
 library.add(iconProp);
 
-const faIcon = icon({ prefix: iconProp.prefix, iconName: iconProp.iconName });
+const faIcon = icon(
+  { prefix: iconProp.prefix, iconName: iconProp.iconName },
+  {
+    classes: ["block!", "w-full!", "h-auto!"],
+  },
+);
 ---
 
 <Fragment set:html={faIcon.html} />
