@@ -1,0 +1,33 @@
+---
+const isDevelopment = import.meta.env.DEV;
+---
+
+{
+  isDevelopment && (
+    <>
+      <aside class="development-banner" aria-label="Development tools">
+        <a href="/keystatic">
+          Development mode — Open Keystatic
+          <span aria-hidden="true">→</span>
+        </a>
+      </aside>
+      <div class="development-banner-spacer" aria-hidden="true" />
+    </>
+  )
+}
+
+<style>
+  @reference "tailwindcss";
+
+  .development-banner {
+    @apply fixed top-0 left-0 z-50 w-full bg-amber-300 text-amber-950 shadow-md;
+  }
+
+  .development-banner a {
+    @apply flex min-h-10 items-center justify-center gap-2 px-4 py-2 font-semibold text-inherit no-underline transition-colors hover:bg-amber-400;
+  }
+
+  .development-banner-spacer {
+    @apply h-10;
+  }
+</style>

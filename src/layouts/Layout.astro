@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Analytics from "../components/Analytics.astro";
+import DevelopmentBanner from "../components/DevelopmentBanner.astro";
 interface Props {
   title?: string;
   compactTop?: boolean;
@@ -44,6 +45,7 @@ const realTitle = title ? `${title} | mrkirby153.com` : "mrkirby153.com";
     <title>{realTitle}</title>
   </head>
   <body>
+    <DevelopmentBanner />
     <div class={compactTop ? "main-content-compact" : "main-content"}>
       <slot />
     </div>

@@ -10,13 +10,15 @@ import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import { unified } from "@astrojs/markdown-remark";
 
 import tailwindcss from "@tailwindcss/vite";
+import markdoc from "@astrojs/markdoc";
+import keystatic from "@keystatic/astro";
+
+const isDev = import.meta.env.DEV;
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.mrkirby153.com",
 
-  // Preserve the Astro v6 HTML whitespace behavior. The v7 default is
-  // `compressHTML: 'jsx'`, which strips whitespace between inline elements.
   compressHTML: true,
 
   integrations: [
@@ -26,10 +28,10 @@ export default defineConfig({
         showLineNumbers: false,
       },
     }),
-    // The MDX integration inherits the markdown config below (unified
-    // processor + remark/rehype plugins), so no per-integration plugins needed.
     mdx(),
     react(),
+    markdoc(),
+    ...(isDev ? [keystatic()] : []),
   ],
 
   markdown: {

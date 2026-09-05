@@ -49,7 +49,7 @@ light:
 
 Since ESPHome's purpose is primarily to integrate with HomeAssistant, this creates a new "Light" entity and exposes it to HomeAssistant. HomeAssistant almost immediately picked up the new ESPHome device and offered to add it as an integration. Once it was integrated, I could navigate to the device's page and see a light. Success!
 
-![Home Assistant Integration](./img/Screenshot-2025-12-17_22:25:56.png)
+![Home Assistant Integration](../../2025/12/esp32-fan-controller/Screenshot-2025-12-17_22:25:56.png)
 
 ### A Roadblock
 
@@ -61,7 +61,7 @@ However, not all hope was lost! Because ESPHome's beta branch had native CC1101 
 
 Once 2025.12.0 was released, it was time to put it all together.
 
-![All Together](./img/IMG_1772.jpeg)
+![All Together](../../2025/12/esp32-fan-controller/IMG_1772.jpeg)
 
 Once everything was connected (And the magic smoke still inside both components), it was time to actually receive signals. By looking at the FCC filing for the remote, I was able to identify that it operates at 303.9Mhz. While the CC1101 is most commonly used for 433 MHz remotes, it's operating range is listed as 303-348, 387-464, and 779-928 MHz. The antenna on my board is most likely tuned for 433 MHz, but 303 MHz is close enough. It's only going about 10 feet so a sub-optimal antenna would probably be fine.
 
@@ -110,7 +110,7 @@ The ESP32 I have has memory for 384 RMT symbols, and by default, the LED strip a
 
 After adding `rmt_symbols: 48` to the `light` block from earlier (As it's just a single LED), the controller booted up successfully. Now for the moment of truth: I pressed a button on the remote and...
 
-![A screenshot of the esp32 logs showing captured data](./img/b4wp7ZOb.png)
+![A screenshot of the esp32 logs showing captured data](../../2025/12/esp32-fan-controller/b4wp7ZOb.png)
 
 We have data!
 
@@ -291,7 +291,7 @@ Getting full speed control is just a matter of creating a template fan (I alread
 * When the fan is turned off, turn off the physical switch.
 * When reporting the percentage, read the sensor exposed on the ESP32 of the current speed. This ensures the entity in Home Assistant has its fan speed reported correctly.
 
-![The final result](./img/hassio_entity.png)
+![The final result](../../2025/12/esp32-fan-controller/hassio_entity.png)
 
 ## The Full fan-controller.yaml
 

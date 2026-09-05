@@ -65,11 +65,11 @@ One final requirement I had was that I wanted it to be easy to configure which s
 
 The easiest solution is to have the end-user (me) manually tell the program which spools are in which AMS slot. However, this needed to be quick and easy to do. I didn't want to have to ssh into a server to manually configure the mappings. Instead, I built a fairly basic Web UI (Seen Below).
 
-![The AMS Slot Configuration UI](img/BambuSpoolman.png)
+![The AMS Slot Configuration UI](../../2025/05/bambu-spoolman/BambuSpoolman.png)
 
 This web UI would show basic statistics about the the connected printer, as well as list what spools are loaded into the AMS. By clicking/tapping on one of the slots, a dialog opens up that shows a little bit of information about a particular spool as well as allows them to change it.
 
-![Change Filament](img/ChangeFilament.png)
+![Change Filament](../../2025/05/bambu-spoolman/ChangeFilament.png)
 
 When opened on a phone (or any device with a camera), there is an additional "Scan QR Code" button that will interpret the Spoolman generated QR codes and auto fill the spool id.
 
