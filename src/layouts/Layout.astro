@@ -2,6 +2,10 @@
 import "../styles/global.css";
 import Analytics from "../components/Analytics.astro";
 import DevelopmentBanner from "../components/DevelopmentBanner.astro";
+import { type Component } from "../types";
+
+type ComponentProp = string | Component;
+
 interface Props {
   title?: string;
   compactTop?: boolean;
@@ -9,11 +13,20 @@ interface Props {
   opengraph?: {
     [key: string]: string;
   };
+  component?: ComponentProp;
 }
 
 const { title, compactTop, description, opengraph } = Astro.props;
 
 const realTitle = title ? `${title} | mrkirby153.com` : "mrkirby153.com";
+
+let component = null;
+let componentUrl = null;
+if (typeof Astro.props.component === "string") {
+  componentUrl = Astro.props.component;
+} else {
+  component = Astro.props.component;
+}
 ---
 
 <!doctype html>
@@ -28,6 +41,27 @@ const realTitle = title ? `${title} | mrkirby153.com` : "mrkirby153.com";
         Object.entries(opengraph).map(([key, value]) => (
           <meta property={key} content={value} />
         ))
+    }
+    {
+      component != null && (
+        <script
+          is:inline
+          id="discord:component-embed"
+          type="application/json"
+          set:html={JSON.stringify({
+            component,
+          })}
+        />
+      )
+    }
+    {
+      componentUrl != null && (
+        <link
+          rel="discord:component-embed"
+          type="application/json"
+          href={componentUrl}
+        />
+      )
     }
     <Analytics
       siteId="e399ff75-024c-4d7a-95cb-43207dbc4000"

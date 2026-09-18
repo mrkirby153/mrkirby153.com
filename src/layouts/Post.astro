@@ -2,16 +2,17 @@
 import Layout from "./Layout.astro";
 import Nav from "@components/Nav.astro";
 import "katex/dist/katex.min.css";
-
+import type { Component } from "../types";
 interface Props {
   title: string;
   description?: string;
   opengraph?: {
     [key: string]: string;
   };
+  component?: Component;
 }
 
-const { title, description, opengraph } = Astro.props;
+const { title, description, opengraph, component } = Astro.props;
 ---
 
 <Layout
@@ -19,6 +20,7 @@ const { title, description, opengraph } = Astro.props;
   compactTop={true}
   description={description}
   opengraph={opengraph}
+  component={component}
 >
   <Nav />
   <h1 class="text-4xl mb-2">{title}</h1>

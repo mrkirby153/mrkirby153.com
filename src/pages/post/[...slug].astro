@@ -2,6 +2,7 @@
 import Toc from "@components/Toc.astro";
 import Post from "@layouts/Post.astro";
 import { getCollection, render } from "astro:content";
+import { type Component, ComponentType, ButtonStyle } from "../../types";
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection("posts");
@@ -24,6 +25,49 @@ const dayOfWeek = new Date(entry.data.date).toLocaleDateString("en-US", {
   day: "numeric",
   year: "numeric",
 });
+
+const component: Component = {
+  type: ComponentType.Container,
+  accent_color: 8469916,
+  components: [
+    {
+      type: ComponentType.TextDisplay,
+      content: `# ${entry.data.title}`,
+    },
+    {
+      type: ComponentType.MediaGallery,
+      items: [
+        {
+          media: {
+            url: new URL(
+              `/open-graph/post/${entry.id}.png`,
+              Astro.site,
+            ).toString(),
+          },
+          description: entry.data.title,
+        },
+      ],
+    },
+    {
+      type: ComponentType.TextDisplay,
+      content: entry.data.summary,
+    },
+    {
+      type: ComponentType.Separator,
+    },
+    {
+      type: ComponentType.ActionRow,
+      components: [
+        {
+          type: ComponentType.Button,
+          style: ButtonStyle.Link,
+          label: "View Post",
+          url: new URL(Astro.url.pathname, Astro.site).toString(),
+        },
+      ],
+    },
+  ],
+};
 ---
 
 <Post
@@ -36,6 +80,7 @@ const dayOfWeek = new Date(entry.data.date).toLocaleDateString("en-US", {
     "og:image": `/open-graph/post/${entry.id}.png`,
     "twitter:card": "summary_large_image",
   }}
+  component={component}
 >
   {
     entry.data.draft && (
