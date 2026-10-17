@@ -24,7 +24,7 @@ However, there's a new challenge: How can I still get variable speed controls in
 
 Enter the humble ESP32. If you've been living under a rock, an ESP32 is a cheap microcontroller with wifi capabilities. They're very similar to an arduino, but targeted more towards IOT and smart home applications and less towards the hobbiest tinkerer.
 
-ESP32's (or their clones) are also extremely cheap and I bought [3 ESP32-S3's](https://www.amazon.com/dp/B0DG8L7MQ9) for $17 (A per-unit cost of $5.66). While there are some specialized ESP32 boards (e.g. WLED controllers or other integrated products), most ESP32's come on development boards. These boards usually provide access to all of the microcontroller's GPIO pins on easy to access headers.
+ESP32's (or their clones) are also extremely cheap and I bought [3 ESP32-S3's](https://www.amazon.com/dp/B0DG8L7MQ9) for \$17 (A per-unit cost of $5.66). While there are some specialized ESP32 boards (e.g. WLED controllers or other integrated products), most ESP32's come on development boards. These boards usually provide access to all of the microcontroller's GPIO pins on easy to access headers.
 
 However, an ESP32 is only half the battle. The goal of this project was to emulate the supplied remote. Poking around on Google, I came across the [TI CC1101](https://www.ti.com/product/CC1101). This is a general purpose sub 1 GHz wireless transcever that people have had success controlling various wireless devices like fireplaces, blinds, or ceiling fans. These are also put on [development boards](https://www.amazon.com/dp/B0D2TMTV5Z) for prototyping.
 
