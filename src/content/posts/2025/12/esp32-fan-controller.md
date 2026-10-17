@@ -49,7 +49,7 @@ light:
 
 Since ESPHome's purpose is primarily to integrate with HomeAssistant, this creates a new "Light" entity and exposes it to HomeAssistant. HomeAssistant almost immediately picked up the new ESPHome device and offered to add it as an integration. Once it was integrated, I could navigate to the device's page and see a light. Success!
 
-![Home Assistant Integration](../../2025/12/esp32-fan-controller/Screenshot-2025-12-17_22:25:56.png)
+![Home Assistant Integration](../../2025/12/esp32-fan-controller/Screenshot-2025-12-17_22-25-56.png)
 
 ### A Roadblock
 
