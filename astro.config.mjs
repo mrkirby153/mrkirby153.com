@@ -7,6 +7,7 @@ import rehypeKatex from "rehype-katex";
 import remarkMath from "remark-math";
 import remarkToc from "remark-toc";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import rehypeExternalLinks from "rehype-external-links";
 import { unified } from "@astrojs/markdown-remark";
 
 import tailwindcss from "@tailwindcss/vite";
@@ -14,10 +15,19 @@ import markdoc from "@astrojs/markdoc";
 import keystatic from "@keystatic/astro";
 
 const isDev = import.meta.env.DEV;
+const site = "https://www.mrkirby153.com";
+const siteHost = new URL(site).hostname
+  .replace(/^www\./, "")
+  .replace(/\./g, "\\.");
+
+// Links to the site or localdev is considered internal
+const internalLinks = new RegExp(
+  `^https?://(www\\.)?${siteHost}(?::|/|$)|^https?://(localhost|127\\.0\\.0\\.1)(?::|/|$)`,
+);
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://www.mrkirby153.com",
+  site,
 
   compressHTML: true,
 
@@ -35,11 +45,22 @@ export default defineConfig({
   ],
 
   markdown: {
-    // Keep the remark/rehype plugin pipeline (remark-math, remark-toc,
-    // rehype-katex, rehype-accessible-emojis) by using the Unified processor.
     processor: unified({
       remarkPlugins: [remarkMath, remarkToc],
-      rehypePlugins: [rehypeKatex, rehypeAccessibleEmojis],
+      rehypePlugins: [
+        rehypeKatex,
+        rehypeAccessibleEmojis,
+        [
+          rehypeExternalLinks,
+          {
+            target: "_blank",
+            rel: "noopener noreferrer",
+            // Skip links matching an internal host (see `internalLinks` above).
+            test: (node) =>
+              !internalLinks.test(String(node.properties?.href ?? "")),
+          },
+        ],
+      ],
     }),
   },
 

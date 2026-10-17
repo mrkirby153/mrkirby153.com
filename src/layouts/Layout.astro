@@ -97,6 +97,10 @@ if (typeof Astro.props.component === "string") {
   p {
     @apply pt-1 pb-1;
   }
+  a[target="_blank"]:not(:empty):not(:has(*))::after {
+    content: "↗";
+    @apply inline-block ms-0.5;
+  }
 </style>
 
 <style>
