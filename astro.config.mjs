@@ -65,6 +65,8 @@ export default defineConfig({
   },
 
   vite: {
+    // satellite.js includes an ES module worker with top-level await.
+    worker: { format: "es" },
     plugins: [tailwindcss()],
   },
   image: {

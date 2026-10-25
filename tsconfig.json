@@ -3,13 +3,12 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "react",
-    "baseUrl": ".",
     "paths": {
-      "@components/*": ["src/components/*"],
-      "@img/*": ["src/img/*"],
-      "@layouts/*": ["src/layouts/*"],
-      "@utils/*": ["src/utils/*"],
-      "@app/*": ["src/*"]
+      "@components/*": ["./src/components/*"],
+      "@img/*": ["./src/img/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@app/*": ["./src/*"]
     }
   }
 }
