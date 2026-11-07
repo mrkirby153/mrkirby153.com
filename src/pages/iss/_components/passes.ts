@@ -40,23 +40,34 @@ export function lookAt(
     range: look.rangeSat,
   };
 }
-export function rangeRate(
+// Rotate both vectors into ECF as required by satellite.js dopplerFactor.
+export function dopplerAt(
   record: satellite.SatRec,
   observer: Observer,
   ms: number,
 ) {
-  return (
-    lookAt(record, observer, ms + 500).range -
-    lookAt(record, observer, ms - 500).range
+  const time = new Date(ms);
+  const state = satellite.propagate(record, time);
+  if (!state) throw new Error("Unable to propagate orbital elements.");
+  const gmst = satellite.gstime(time);
+  const observerEcf = satellite.geodeticToEcf({
+    latitude: satellite.degreesToRadians(observer.latitude),
+    longitude: satellite.degreesToRadians(observer.longitude),
+    height: observer.altitudeMeters / 1000,
+  });
+  return satellite.dopplerFactor(
+    observerEcf,
+    satellite.eciToEcf(state.position, gmst),
+    satellite.eciToEcf(state.velocity, gmst),
   );
 }
+
 export function tunedFrequency(
   nominal: number,
   step: number,
-  rate: number,
+  factor: number,
   uplink: boolean,
 ) {
-  const factor = 1 - rate / 299792.458;
   const exact = uplink ? nominal / factor : nominal * factor;
   return {
     exact,
